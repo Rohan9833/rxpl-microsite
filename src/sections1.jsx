@@ -84,7 +84,7 @@ export function Hero() {
   return (
     <section id="top" className="section relative overflow-hidden bg-night text-white">
       <Stadium />
-      <div className="relative mx-auto grid max-w-[1240px] gap-4 px-5 pt-10 @tab:px-10 @tab:pt-14 @desk:grid-cols-12 @desk:gap-8 @desk:pt-16">
+      <div className="relative mx-auto grid max-w-[1240px] gap-4 px-5 pt-2 @tab:px-10 @tab:pt-14 @desk:grid-cols-12 @desk:gap-8 @desk:pt-16">
         <div className="relative z-10 @desk:col-span-7 @desk:row-start-1 @desk:pt-12">
           <div className="eyebrow flex items-center gap-1.5 text-xs text-white/70 whitespace-nowrap">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_12px_#F6CD20]" />Field-force engagement for pharma

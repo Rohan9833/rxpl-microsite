@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="min-h-full">
-      <div className="flex h-14 items-center gap-3 border-b border-ink/10 bg-white px-4">
+      {/* <div className="flex h-14 items-center gap-3 border-b border-ink/10 bg-white px-4">
         <div className="flex min-w-0 items-center gap-2">
           <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-royal to-magenta text-white"><Icon name="palette" className="h-4 w-4" /></span>
           <span className="truncate font-display text-[14px] font-extrabold text-ink">RxPL microsite <span className="hidden font-semibold text-muted sm:inline">· design prototype</span></span>
@@ -69,7 +69,7 @@ function App() {
             <Icon name="palette" className="h-4 w-4" />Design system
           </button>
         </div>
-      </div>
+      </div> */}
 
       {device === 'desktop' && <Site />}
       {device === 'design-system' && <DesignSystem />}
