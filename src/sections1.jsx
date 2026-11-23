@@ -2,7 +2,7 @@ import { Icon } from './icons.jsx';
 import { SCORING } from './data.js';
 import { Phone, SectionHead, Btn, RunChip, IllustrativeBadge } from './parts.jsx';
 
-const { useState, useEffect } = React;
+import { useState, useEffect } from 'react';
 
 export const go = (id) => {
   const el = document.getElementById(id);
