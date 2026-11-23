@@ -1,10 +1,12 @@
+import React, { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import './styles.css';
 import { Icon } from './icons.jsx';
 import { Nav, Hero, HowItWorks, Scoring } from './sections1.jsx';
 import { Tournament, AppShowcase, Approval } from './sections2.jsx';
 import { Dashboard, Benefits, Demo, Footer } from './sections3.jsx';
 import { DesignSystem } from './design.jsx';
 
-const { useState, useEffect } = React;
 
 function Site() {
   return (
@@ -89,4 +91,4 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+createRoot(document.getElementById('root')).render(<App />);
