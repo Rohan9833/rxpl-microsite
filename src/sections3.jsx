@@ -95,7 +95,7 @@ export function Dashboard() {
               </div>
               <div className="min-w-0 p-4 @tab:p-6">
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-3"><img src="assets/rxpl-logo.png" alt="RxPL logo" className="h-11 w-auto" /><div><div className="text-[10px] font-bold uppercase tracking-[.2em] text-muted">Sample tournament</div><div className="font-display text-xl font-extrabold">Tournament overview</div></div></div>
+                  <div className="flex items-center gap-3"><img src="/assets/rxpl-logo.png" alt="RxPL logo" className="h-11 w-auto" /><div><div className="text-[10px] font-bold uppercase tracking-[.2em] text-muted">Sample tournament</div><div className="font-display text-xl font-extrabold">Tournament overview</div></div></div>
                   <span className="flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-[11px] font-bold ring-1 ring-ink/10"><span className="live-dot h-2 w-2 rounded-full bg-magenta" />Live</span>
                 </div>
                 <PortalView v="Dashboard" />
@@ -250,7 +250,7 @@ export function Footer() {
     <footer className="bg-lavender text-ink">
       <div className="mx-auto grid max-w-[1240px] gap-10 px-5 py-14 @tab:px-10 @desk:grid-cols-12">
         <div className="@desk:col-span-5">
-          <img src="assets/rxpl-logo.png" alt="RxPL — Rxns • Players • Leaders" className="h-20 w-auto" />
+          <img src="/assets/rxpl-logo.png" alt="RxPL — Rxns • Players • Leaders" className="h-20 w-auto" />
           <p className="mt-5 max-w-[40ch] text-[14.5px] leading-relaxed text-muted">RxPL is a cricket-inspired field-force engagement and gamification platform for pharmaceutical companies. MRs score runs for priority brand activities and compete in regional teams.</p>
         </div>
         <nav className="@desk:col-span-3" aria-label="Footer">
@@ -263,7 +263,7 @@ export function Footer() {
           <div className="text-[11px] font-bold uppercase tracking-[.2em] text-muted">See it for your brands</div>
           <Btn onClick={() => go('demo')} icon="arrow" className="mt-4">Request a Demo</Btn>
           <div className="mt-8 text-[11px] font-bold uppercase tracking-[.2em] text-muted">A product by</div>
-          <img src="assets/digilateral.png" alt="digiLATERAL — Think Lateral, Think Digital. Digital solutions for pharma marketeers" className="mt-3 h-12 w-auto" />
+          <img src="/assets/digilateral.png" alt="digiLATERAL — Think Lateral, Think Digital. Digital solutions for pharma marketeers" className="mt-3 h-12 w-auto" />
         </div>
       </div>
       <div className="border-t border-ink/10">
