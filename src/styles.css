@@ -38,7 +38,7 @@ h1, h2, h3 { text-wrap: balance; font-family: var(--font-display); }
 
 .h-display { font-size: clamp(2.45rem, 4.9cqi, 4.3rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 800; }
 .h-section { font-size: clamp(2rem, 4.3cqi, 3.6rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 800; }
-@container (max-width: 480px) { .h-display { font-size: clamp(1.65rem, 7.4cqi, 2rem); } }
+@media (max-width: 480px) { .h-display { font-size: 1.55rem !important; line-height: 1.08; } }
 .eyebrow { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
 
 @layer components {
