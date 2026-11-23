@@ -56,15 +56,15 @@ export function DesignSystem() {
             <h1 className="mt-3 font-display text-[44px] font-extrabold leading-none tracking-[-0.03em] @tab:text-[64px]">RxPL Design System</h1>
             <p className="mt-4 max-w-[60ch] text-[16px] leading-relaxed text-muted">Tokens, components and rules behind the microsite. The palette is drawn from the official logo; the cricket energy comes from broadcast-style scoreboards, not decoration.</p>
           </div>
-          <img src="assets/rxpl-logo.png" alt="RxPL logo" className="h-24 w-auto" />
+          <img src="/assets/rxpl-logo.png" alt="RxPL logo" className="h-24 w-auto" />
         </div>
 
         <Block title="Logo" note="Use the supplied file only. Never redraw, recolour, crop the batsman or drop the tagline.">
           <div className="grid gap-4 @tab:grid-cols-3">
-            <div className="grid place-items-center rounded-2xl bg-white p-8 ring-1 ring-ink/10"><img src="assets/rxpl-logo.png" alt="RxPL logo on white" className="h-28 w-auto" /></div>
-            <div className="grid place-items-center rounded-2xl bg-lavender p-8"><img src="assets/rxpl-logo.png" alt="RxPL logo on lavender" className="h-28 w-auto" /></div>
+            <div className="grid place-items-center rounded-2xl bg-white p-8 ring-1 ring-ink/10"><img src="/assets/rxpl-logo.png" alt="RxPL logo on white" className="h-28 w-auto" /></div>
+            <div className="grid place-items-center rounded-2xl bg-lavender p-8"><img src="/assets/rxpl-logo.png" alt="RxPL logo on lavender" className="h-28 w-auto" /></div>
             <div className="overflow-hidden rounded-2xl bg-night">
-              <div className="flex h-[80px] items-center bg-white px-5"><img src="assets/rxpl-logo.png" alt="RxPL logo in the white navigation bar" className="h-[62px] w-auto" /></div>
+              <div className="flex h-[80px] items-center bg-white px-5"><img src="/assets/rxpl-logo.png" alt="RxPL logo in the white navigation bar" className="h-[62px] w-auto" /></div>
               <div className="h-[3px] bg-gradient-to-r from-indigo via-magenta to-violet" />
               <div className="px-5 pb-5 pt-4 text-[12px] text-white/60">On dark pages: a white navigation bar carries the logo</div>
             </div>          </div>
@@ -166,7 +166,7 @@ export function DesignSystem() {
         <Block title="Navigation" note="Sticky white bar, 80px (72px on mobile), with a 3px Indigo → Magenta → Violet rule that hands over to the dark hero.">
           <div className="space-y-3">
             <div className="overflow-hidden rounded-2xl ring-1 ring-ink/10">
-              <div className="flex h-[64px] items-center gap-4 bg-white px-4"><img src="assets/rxpl-logo.png" alt="" className="h-12 w-auto" /><span className="ml-auto hidden gap-4 text-[13px] font-semibold text-ink/70 @tab:flex"><span>How it works</span><span>Scoring</span><span>Tournament</span><span>App</span></span><span className="btn-primary rounded-full px-4 py-2 text-[13px] font-bold text-white">Request a Demo</span></div>
+              <div className="flex h-[64px] items-center gap-4 bg-white px-4"><img src="/assets/rxpl-logo.png" alt="" className="h-12 w-auto" /><span className="ml-auto hidden gap-4 text-[13px] font-semibold text-ink/70 @tab:flex"><span>How it works</span><span>Scoring</span><span>Tournament</span><span>App</span></span><span className="btn-primary rounded-full px-4 py-2 text-[13px] font-bold text-white">Request a Demo</span></div>
               <div className="h-[3px] bg-gradient-to-r from-indigo via-magenta to-violet" />
               <div className="h-10 bg-night" />
             </div>
@@ -203,8 +203,8 @@ export function DesignSystem() {
 
         <Block title="Device frames" note="Screens are cropped from the video at 622×1342 and set in a neutral titanium frame.">
           <div className="flex items-end gap-6">
-            <Phone src="assets/app-player-profile.jpg" alt="RxPL app: Player Profile" className="w-40" />
-            <Phone src="assets/app-compare-players.jpg" alt="RxPL app: Player vs Player" className="w-32" />
+            <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile" className="w-40" />
+            <Phone src="/assets/app-compare-players.jpg" alt="RxPL app: Player vs Player" className="w-32" />
             <p className="max-w-[40ch] text-[14px] text-muted">Frame: 42px radius, 9px titanium bezel, deep drop shadow. Never add a second notch or status bar; the screenshots already carry them.</p>
           </div>
         </Block>
