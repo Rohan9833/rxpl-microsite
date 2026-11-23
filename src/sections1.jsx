@@ -85,28 +85,28 @@ export function Hero() {
     <section id="top" className="section relative overflow-hidden bg-night text-white">
       <Stadium />
       <div className="relative mx-auto grid max-w-[1240px] gap-4 px-5 pt-10 @tab:px-10 @tab:pt-14 @desk:grid-cols-12 @desk:gap-8 @desk:pt-16">
-        <div className="relative z-10 @desk:col-span-7 @desk:pb-24 @desk:pt-12">
-          <div className="eyebrow flex items-center gap-2.5 text-white/70">
-            <span className="h-2 w-2 rounded-full bg-gold shadow-[0_0_12px_#F6CD20]" />Field-force engagement for pharma
+        <div className="relative z-10 @desk:col-span-7 @desk:row-start-1 @desk:pt-12">
+          <div className="eyebrow flex items-center gap-1.5 text-xs text-white/70 whitespace-nowrap">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_12px_#F6CD20]" />Field-force engagement for pharma
           </div>
-          <h1 className="h-display mt-5">
-            Your Field Force.<br />Your Teams.<br />
+          <h1 className="h-display mt-3">
+            Your Field Force.<br />
             <span className="bg-gradient-to-r from-pink via-[#FF2E93] to-magenta bg-clip-text text-transparent">Your Premier League.</span>
           </h1>
-          <p className="mt-6 max-w-[44ch] text-[1.08rem] leading-relaxed text-white/75 @tab:text-[1.2rem]">
-            Turn priority brand activities into cricket runs, regional competition, and measurable field-force engagement.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 @md:flex-row">
-            <Btn onClick={() => go('demo')} icon="arrow" className="h-14 px-8 text-base">Request a Demo</Btn>
-            <Btn onClick={() => go('how')} variant="ghost" className="h-14 px-8 text-base">Explore RxPL</Btn>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55">
-            <span className="flex items-center gap-2"><Icon name="phone" className="h-4 w-4 text-pink" />iOS &amp; Android app</span>
-            <span className="flex items-center gap-2"><Icon name="shield" className="h-4 w-4 text-pink" />Manager approval</span>
-            <span className="flex items-center gap-2"><Icon name="chart" className="h-4 w-4 text-pink" />Head Office reports</span>
-          </div>
         </div>
         <HeroVisual />
+        <p className="mt-2 max-w-[44ch] text-[1.08rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-7 @desk:row-start-2">
+          Turn priority brand activities into cricket runs, regional competition, and measurable field-force engagement.
+        </p>
+        <div className="flex flex-row flex-wrap gap-3 @desk:col-span-7 @desk:row-start-3">
+          <Btn onClick={() => go('demo')} icon="arrow" className="h-14 px-8 text-base">Request a Demo</Btn>
+          <Btn onClick={() => go('how')} variant="ghost" className="h-14 px-8 text-base">Explore RxPL</Btn>
+        </div>
+        <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:col-span-7 @desk:row-start-4">
+          <span className="flex items-center gap-2"><Icon name="phone" className="h-4 w-4 text-pink" />iOS &amp; Android app</span>
+          <span className="flex items-center gap-2"><Icon name="shield" className="h-4 w-4 text-pink" />Manager approval</span>
+          <span className="flex items-center gap-2"><Icon name="chart" className="h-4 w-4 text-pink" />Head Office reports</span>
+        </div>
       </div>
       <Ticker />
     </section>
