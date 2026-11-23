@@ -76,3 +76,6 @@ h1, h2, h3 { text-wrap: balance; font-family: var(--font-display); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Compact vertical spacing across section bands; horizontal padding remains unchanged. */
+.section { padding-top: 2px !important; padding-bottom: 2px !important; }
