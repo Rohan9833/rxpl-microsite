@@ -55,9 +55,9 @@ export const SCORING = [
 ];
 
 export const SCREENS = [
-  { id: 'profile', src: 'assets/app-player-profile.jpg', title: 'Player Profile', text: 'Every MR gets a personal scorecard with runs, boundaries and recent form.' },
-  { id: 'compare', src: 'assets/app-compare-players.jpg', title: 'Player vs Player', text: 'Head-to-head comparison that keeps the competition personal.' },
-  { id: 'match', src: 'assets/app-match-scorecard.jpg', title: 'Match Centre', text: 'Live, upcoming and previous matches with full scorecards.' },
+  { id: 'profile', src: '/assets/app-player-profile.jpg', title: 'Player Profile', text: 'Every MR gets a personal scorecard with runs, boundaries and recent form.' },
+  { id: 'compare', src: '/assets/app-compare-players.jpg', title: 'Player vs Player', text: 'Head-to-head comparison that keeps the competition personal.' },
+  { id: 'match', src: '/assets/app-match-scorecard.jpg', title: 'Match Centre', text: 'Live, upcoming and previous matches with full scorecards.' },
 ];
 
 export const ADMIN_NAV = ['Dashboard', 'TeamWise Stats', 'RealTime Overview', 'Reports', 'Match Schedule', 'All Players', 'Matches'];
