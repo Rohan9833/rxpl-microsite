@@ -98,9 +98,9 @@ export function Hero() {
         <p className="mt-2 max-w-[44ch] text-[1.08rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-7 @desk:row-start-2">
           Turn priority brand activities into cricket runs, regional competition, and measurable field-force engagement.
         </p>
-        <div className="flex flex-row flex-wrap gap-3 @desk:col-span-7 @desk:row-start-3">
-          <Btn onClick={() => go('demo')} icon="arrow" className="h-14 px-8 text-base">Request a Demo</Btn>
-          <Btn onClick={() => go('how')} variant="ghost" className="h-14 px-8 text-base">Explore RxPL</Btn>
+        <div className="flex flex-row gap-3 @desk:col-span-7 @desk:row-start-3">
+          <Btn onClick={() => go('demo')} icon="arrow" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Request a Demo</Btn>
+          <Btn onClick={() => go('how')} variant="ghost" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Explore RxPL</Btn>
         </div>
         <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:col-span-7 @desk:row-start-4">
           <span className="flex items-center gap-2"><Icon name="phone" className="h-4 w-4 text-pink" />iOS &amp; Android app</span>
