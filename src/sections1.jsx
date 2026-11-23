@@ -21,7 +21,7 @@ export function Nav() {
     <header className="sticky top-0 z-40 bg-white shadow-[0_10px_30px_-18px_rgba(14,8,38,.6)] backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-[1240px] items-center gap-6 px-5 @tab:h-[80px] @tab:px-10">
         <button onClick={() => jump('top')} aria-label="RxPL home" className="shrink-0">
-          <img src="assets/rxpl-logo.png" alt="RxPL — Rxns • Players • Leaders" className="h-[54px] w-auto @tab:h-[62px]" />
+          <img src="/assets/rxpl-logo.png" alt="RxPL — Rxns • Players • Leaders" className="h-[54px] w-auto @tab:h-[62px]" />
         </button>
         <nav className="ml-auto hidden items-center gap-1 @desk:flex" aria-label="Sections">
           {NAV.map(([id, label]) => (
@@ -117,12 +117,12 @@ function HeroVisual() {
   return (
     <div className="relative h-[400px] [mask-image:linear-gradient(to_bottom,black_72%,transparent)] @md:h-[460px] @tab:h-[560px] @desk:col-span-5 @desk:h-[660px]">
       <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-24 @desk:-translate-x-[92%]">
-        <Phone src="assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
+        <Phone src="/assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
       </div>
       <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-10">
-        <Phone src="assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
+        <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
       </div>
-      <img src="assets/app-push-banner.png" alt="RxPL push notification: A perfect drive to the boundary! 4 Runs – Guwahati Champions"
+      <img src="/assets/app-push-banner.png" alt="RxPL push notification: A perfect drive to the boundary! 4 Runs – Guwahati Champions"
         className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-0" />
       <div className="absolute bottom-24 right-0 hidden text-[11px] font-semibold tracking-wide text-white/45 @desk:block">Screens from the RxPL app</div>
     </div>
