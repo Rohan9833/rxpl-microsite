@@ -1,5 +1,7 @@
-module.exports = {
-  content: ['./src/**/*.{jsx,js,html}'],
+import containerQueries from '@tailwindcss/container-queries';
+
+export default {
+  content: ['./index.html', './src/**/*.{jsx,js,html}'],
   theme: {
     extend: {
       colors: {
@@ -21,8 +23,11 @@ module.exports = {
         body: ['Manrope', 'system-ui', 'sans-serif'],
         score: ['"Barlow Condensed"', 'Oswald', 'sans-serif'],
       },
-      containers: { tab: '760px', desk: '1060px' },
+      containers: {
+        tab: '760px',
+        desk: '1060px',
+      },
     },
   },
-  plugins: [require('@tailwindcss/container-queries')],
+  plugins: [containerQueries],
 };
