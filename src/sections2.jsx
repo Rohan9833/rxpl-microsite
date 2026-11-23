@@ -2,7 +2,7 @@ import { Icon } from './icons.jsx';
 import { TEAMS, LEAGUE, KNOCKOUT, SCREENS, FIXTURES } from './data.js';
 import { Phone, SectionHead, Crest, Trophy, IllustrativeBadge, Tag } from './parts.jsx';
 
-const { useState, useRef, useEffect } = React;
+import { useState, useRef, useEffect } from 'react';
 
 /* ---------- Teams & tournament ---------- */
 
