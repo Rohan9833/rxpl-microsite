@@ -1,7 +1,7 @@
 import { Icon } from './icons.jsx';
 import { TEAMS } from './data.js';
 
-export const LOGO = 'assets/rxpl-logo.png';
+export const LOGO = '/assets/rxpl-logo.png';
 
 export function LogoPlate({ className = 'h-11', plate = 'bg-white' }) {
   return (
