@@ -3,7 +3,7 @@ import { TEAMS, LEAGUE, PLAYERS } from './data.js';
 import { SectionHead, Crest, IllustrativeBadge, Btn, LogoPlate } from './parts.jsx';
 import { go } from './sections1.jsx';
 
-const { useState } = React;
+import { useState } from 'react';
 
 /* ---------- Head Office dashboard (illustrative) ---------- */
 
