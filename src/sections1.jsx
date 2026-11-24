@@ -82,7 +82,7 @@ function Stadium() {
 
 export function Hero() {
   return (
-    <section id="top" className="section relative overflow-hidden bg-night text-white">
+    <section id="top" className="section relative overflow-hidden bg-night text-white @desk:overflow-visible">
       <Stadium />
       <div className="relative mx-auto grid max-w-[1240px] gap-2 px-5 pt-2 @tab:px-10 @tab:pt-14 @desk:grid-cols-12 @desk:gap-8 @desk:pt-16">
         <div className="relative z-10 @desk:col-span-7 @desk:row-start-1 @desk:pt-12">
@@ -115,7 +115,7 @@ export function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative h-[400px] [mask-image:linear-gradient(to_bottom,black_72%,transparent)] @md:h-[460px] @tab:h-[560px] @desk:col-span-5 @desk:h-[660px]">
+    <div className="relative h-[400px] [mask-image:linear-gradient(to_bottom,black_72%,transparent)] @md:h-[460px] @tab:h-[560px] @desk:col-span-5 @desk:h-[700px] @desk:overflow-visible @desk:[mask-image:none]">
       <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-24 @desk:-translate-x-[92%]">
         <Phone src="/assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
       </div>
