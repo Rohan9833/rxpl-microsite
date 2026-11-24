@@ -251,7 +251,7 @@ export function AppShowcase() {
           <div ref={scroller} onScroll={onScroll} className="hide-scroll -mx-5 flex snap-x snap-mandatory overflow-x-auto">
             {SCREENS.map((s) => (
               <figure key={s.id} className="w-full shrink-0 snap-center px-5">
-                <Phone src={s.src} alt={`RxPL app: ${s.title}`} className="mx-auto w-[74%] max-w-[300px]" />
+                <Phone src={s.src} alt={`RxPL app: ${s.title}`} className="mx-auto w-[59%] max-w-[300px]" />
                 <figcaption className="mt-5 text-center">
                   <div className="font-display text-lg font-extrabold">{s.title}</div>
                   <div className="mx-auto mt-1 max-w-[34ch] text-[14px] text-white/65">{s.text}</div>
