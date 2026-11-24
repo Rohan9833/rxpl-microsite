@@ -69,15 +69,11 @@ function validateRequest(body = {}) {
   if (!data.company) errors.company = 'Enter your company name.';
   if (!data.designation) errors.designation = 'Enter your designation.';
 
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/.test(data.email)) {
-    errors.email = 'Enter a valid business email address.';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
+    errors.email = 'Enter a valid email address.';
   }
 
-  const digits = data.mobile.replace(/[\\s()-]/g, '');
-
-  if (!/^(\\+?\\d{1,3})?\\d{10}$/.test(digits)) {
-    errors.mobile = 'Enter a valid 10-digit mobile number, with country code if needed.';
-  }
+  // Mobile number is collected as provided; no format or digit-count restriction.
 
   return { data, errors };
 }
