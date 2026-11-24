@@ -202,9 +202,25 @@ export function AppShowcase() {
   const at = (k) => SCREENS[(k + n) % n];
   const onScroll = () => {
     const el = scroller.current; if (!el) return;
-    setSlide(Math.round(el.scrollLeft / el.clientWidth));
+    const physical = Math.round(el.scrollLeft / el.clientWidth);
+    if (physical === 0) {
+      el.scrollTo({ left: n * el.clientWidth, behavior: 'auto' });
+      setSlide(n - 1);
+    } else if (physical === n + 1) {
+      el.scrollTo({ left: el.clientWidth, behavior: 'auto' });
+      setSlide(0);
+    } else {
+      setSlide(physical - 1);
+    }
   };
-  const toSlide = (k) => { const el = scroller.current; if (el) el.scrollTo({ left: k * el.clientWidth, behavior: 'smooth' }); };
+  useEffect(() => {
+    const el = scroller.current;
+    if (el) el.scrollTo({ left: el.clientWidth, behavior: 'auto' });
+  }, []);
+  const toSlide = (k) => {
+    const el = scroller.current;
+    if (el) el.scrollTo({ left: ((((k + n) % n) + 1) * el.clientWidth), behavior: 'smooth' });
+  };
   const feats = [
     ['users', 'Player profiles and statistics'], ['swap', 'Head-to-head comparison'], ['chart', 'Matches and leaderboards'],
     ['upload', 'Quick activity logging'], ['bell', 'Push and in-app notifications'], ['phone', 'iOS and Android apps'],
@@ -249,8 +265,8 @@ export function AppShowcase() {
         {/* Compact: swipeable, full-width slides */}
         <div className="mt-5 @tab:hidden">
           <div ref={scroller} onScroll={onScroll} className="hide-scroll -mx-5 flex snap-x snap-mandatory overflow-x-auto">
-            {SCREENS.map((s) => (
-              <figure key={s.id} className="w-full shrink-0 snap-center px-5">
+            {[SCREENS[n - 1], ...SCREENS, SCREENS[0]].map((s, k) => (
+              <figure key={`slide-${k}`} className="w-full shrink-0 snap-center px-5">
                 <Phone src={s.src} alt={`RxPL app: ${s.title}`} className="mx-auto w-[59%] max-w-[300px]" />
                 <figcaption className="mt-5 text-center">
                   <div className="font-display text-lg font-extrabold">{s.title}</div>
