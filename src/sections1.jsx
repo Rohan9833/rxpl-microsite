@@ -102,7 +102,7 @@ export function Hero() {
         <p className="mt-2 max-w-[44ch] text-[0.8rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-7 @desk:row-start-2">
           Turn priority brand activities into cricket runs, regional competition, and measurable field-force engagement.
         </p>
-        <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:col-span-12 @desk:row-start-4 @desk:text-[15px] @desk:gap-x-10 @desk:gap-y-3">
+        <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:col-span-12 @desk:row-start-4 @desk:w-full @desk:justify-between @desk:text-[15px] @desk:gap-x-4 @desk:gap-y-3">
           <span className="flex items-center gap-2"><Icon name="phone" className="h-4 w-4 text-pink" />iOS &amp; Android app</span>
           <span className="flex items-center gap-2"><Icon name="shield" className="h-4 w-4 text-pink" />Manager approval</span>
           <span className="flex items-center gap-2"><Icon name="chart" className="h-4 w-4 text-pink" />Head Office reports</span>
@@ -115,7 +115,7 @@ export function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-5 @desk:h-[700px] @desk:overflow-visible">
+    <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-5 @desk:row-span-3 @desk:row-start-1 @desk:h-[700px] @desk:overflow-visible">
       <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-24 @desk:-translate-x-[92%]">
         <Phone src="/assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
       </div>
