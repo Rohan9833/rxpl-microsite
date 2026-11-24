@@ -84,25 +84,25 @@ export function Hero() {
   return (
     <section id="top" className="section relative overflow-hidden bg-night text-white @desk:flex @desk:h-[calc(100svh-80px)] @desk:min-h-[680px] @desk:flex-col @desk:overflow-visible">
       <Stadium />
-      <div className="relative mx-auto grid max-w-[1240px] gap-2 px-5 pt-2 @tab:px-10 @tab:pt-14 @desk:flex-1 @desk:grid-cols-12 @desk:gap-12 @desk:pt-8 @desk:pb-4">
-        <div className="relative z-10 @desk:col-span-6 @desk:row-start-1 @desk:pt-12">
-          <div className="eyebrow flex items-center gap-1.5 !text-[0.6rem] text-white/70 whitespace-nowrap">
+      <div className="relative mx-auto grid w-full max-w-[1320px] gap-2 px-5 pt-2 @tab:px-10 @tab:pt-14 @desk:flex-1 @desk:grid-cols-12 @desk:items-center @desk:gap-16 @desk:px-12 @desk:pt-8 @desk:pb-8">
+        <div className="relative z-10 @desk:col-span-6 @desk:row-start-1 @desk:pt-0 @desk:max-w-[600px]">
+          <div className="eyebrow flex items-center gap-1.5 !text-[0.6rem] text-white/70 whitespace-nowrap @desk:!text-[0.72rem]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_12px_#F6CD20]" />Field-force engagement for pharma
           </div>
-          <h1 className="h-display mt-3 desktop-two-lines">
+          <h1 className="h-display mt-3 desktop-two-lines @desk:mt-5 @desk:max-w-[12ch]">
             Your Field Force.<br />
             <span className="bg-gradient-to-r from-pink via-[#FF2E93] to-magenta bg-clip-text text-transparent">Your Premier League.</span>
           </h1>
-          <p className="hidden mt-5 max-w-[52ch] text-[1.05rem] leading-relaxed text-white/75 @desk:block">
+          <p className="hidden mt-5 max-w-[46ch] text-[1.05rem] leading-[1.8] text-white/75 @desk:block">
             Turn priority brand activities into cricket runs,<br className="hidden @desk:block" />
             regional competition, and measurable field-force<br className="hidden @desk:block" />
             engagement.
           </p>
-          <div className="hidden mt-6 flex-row gap-3 @desk:flex">
+          <div className="hidden mt-8 flex-row gap-3 @desk:flex">
             <Btn onClick={() => go('demo')} icon="arrow" className="h-14 justify-center px-8 text-base">Request a Demo</Btn>
             <Btn onClick={() => go('how')} variant="ghost" className="h-14 justify-center px-8 text-base">Explore RxPL</Btn>
           </div>
-          <div className="hidden mt-5 w-full items-center justify-between gap-4 text-[13px] font-semibold text-white/55 @desk:flex @desk:text-[14px]">
+          <div className="hidden mt-8 w-full max-w-[570px] items-center justify-between gap-4 border-t border-white/10 pt-5 text-[13px] font-semibold text-white/55 @desk:flex @desk:text-[14px]">
             <span className="flex items-center gap-1.5 whitespace-nowrap"><Icon name="phone" className="h-4 w-4 shrink-0 text-pink" />iOS &amp; Android app</span>
             <span className="flex items-center gap-1.5 whitespace-nowrap"><Icon name="shield" className="h-4 w-4 shrink-0 text-pink" />Manager approval</span>
             <span className="flex items-center gap-1.5 whitespace-nowrap"><Icon name="chart" className="h-4 w-4 shrink-0 text-pink" />Head Office reports</span>
@@ -129,16 +129,17 @@ export function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-6 @desk:row-span-3 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-visible">
-      <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-24 @desk:w-[40%] @desk:max-w-[198px] @desk:-translate-x-[92%]">
-  <Phone src="/assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
-</div>
-      <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-10 @desk:w-[45%] @desk:max-w-[232px]">
-  <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
-</div>
+    <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-6 @desk:row-span-3 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-visible @desk:rounded-[36px]">
+      <div className="pointer-events-none absolute inset-x-[8%] top-[8%] hidden h-[78%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(132,70,220,0.35),rgba(227,18,122,0.10)_45%,transparent_72%)] @desk:block" />
+      <div className="pointer-events-none absolute inset-x-[12%] top-[12%] hidden aspect-square rounded-full border border-white/10 @desk:block" />
+      <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-1/2 @desk:w-[39%] @desk:max-w-[245px] @desk:-translate-x-[90%] @desk:-translate-y-[46%]">
+        <Phone src="/assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
+      </div>
+      <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-1/2 @desk:w-[47%] @desk:max-w-[290px] @desk:-translate-x-[18%] @desk:-translate-y-[52%]">
+        <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
+      </div>
       <img src="/assets/app-push-banner.png" alt="RxPL push notification: A perfect drive to the boundary! 4 Runs – Guwahati Champions"
-        className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-0" />
-      
+        className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[72%] @desk:max-w-[390px]" />
     </div>
   );
 }
