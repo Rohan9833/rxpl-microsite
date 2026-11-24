@@ -42,15 +42,15 @@ export function Crest({ t, size = 34 }) {
 
 export function SectionHead({ eyebrow, title, intro, dark = false, children }) {
   return (
-    <div className="grid gap-3 @desk:grid-cols-12 @desk:items-end">
-      <div className="@desk:col-span-7">
+    <div className="grid gap-3 @desk:grid-cols-12 @desk:items-start">
+      <div className="@desk:col-span-12">
         <div className={`eyebrow flex items-center gap-2.5 ${dark ? 'text-pink' : 'text-magenta'}`}>
           <span className="h-px w-8 bg-current" />{eyebrow}
         </div>
         <h2 className={`h-section mt-4 ${dark ? 'text-white' : 'text-ink'}`}>{title}</h2>
       </div>
       {(intro || children) && (
-        <div className="@desk:col-span-5 @desk:pb-2">
+        <div className="@desk:col-span-12">
           {intro && <p className={`max-w-[46ch] text-[1.05rem] leading-relaxed ${dark ? 'text-white/70' : 'text-muted'}`}>{intro}</p>}
           {children}
         </div>
