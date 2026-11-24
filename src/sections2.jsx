@@ -411,7 +411,7 @@ export function AppShowcase() {
   return (
     <section
       id="app"
-      className="section relative overflow-hidden bg-night py-20 text-white @tab:py-28 @desk:h-[150svh] @desk:min-h-0 @desk:overflow-hidden @desk:py-0"
+      className="section relative overflow-hidden bg-night py-20 text-white @tab:py-28 @desk:h-[115svh] @desk:min-h-0 @desk:overflow-hidden @desk:py-0"
     >
       <div
         className="pointer-events-none absolute inset-0"
