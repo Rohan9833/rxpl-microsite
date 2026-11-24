@@ -173,7 +173,7 @@ export function Tournament() {
   const [mode, setMode] = useState('league');
   return (
     <section id="tournament" className="section bg-lavender py-20 text-ink @tab:py-28">
-      <div className="mx-auto max-w-[1240px] px-5 @tab:px-10">
+      <div className="mx-auto max-w-[1240px] px-5 py-2 @tab:px-10">
         <SectionHead eyebrow="Teams & tournaments" title={<>Your Regions.<br />Your Teams.<br />Your Tournament.</>}
           intro="Group players into regional or zonal teams with their own cricket-style names, then run a league or a knockout." />
         <div className="mt-10 flex flex-col gap-5 @desk:flex-row @desk:items-center @desk:justify-between">
@@ -247,7 +247,7 @@ export function AppShowcase() {
         </div>
 
         {/* Compact: swipeable, full-width slides */}
-        <div className="mt-10 @tab:hidden">
+        <div className="mt-5 @tab:hidden">
           <div ref={scroller} onScroll={onScroll} className="hide-scroll -mx-5 flex snap-x snap-mandatory overflow-x-auto">
             {SCREENS.map((s) => (
               <figure key={s.id} className="w-full shrink-0 snap-center px-5">
