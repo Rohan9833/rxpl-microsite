@@ -177,16 +177,46 @@ function validate(f) {
 }
 
 export function Demo() {
-  const blank = { name: '', company: '', designation: '', email: '', mobile: '', message: '' };
+  const blank = { name: '', company: '', designation: '', email: '', mobile: '', message: '', website: '' };
   const [f, setF] = useState(blank);
   const [err, setErr] = useState({});
   const [touched, setTouched] = useState(false);
   const [done, setDone] = useState(false);
-  const upd = (k) => (ev) => { const nf = { ...f, [k]: ev.target.value }; setF(nf); if (touched) setErr(validate(nf)); };
-  const submit = (ev) => {
-    ev.preventDefault(); setTouched(true);
-    const e = validate(f); setErr(e);
-    if (Object.keys(e).length === 0) setDone(true);
+  const [sending, setSending] = useState(false);
+  const [serverError, setServerError] = useState('');
+  const upd = (k) => (ev) => {
+    const nf = { ...f, [k]: ev.target.value };
+    setF(nf);
+    setServerError('');
+    if (touched) setErr(validate(nf));
+  };
+  const submit = async (ev) => {
+    ev.preventDefault();
+    setTouched(true);
+    const e = validate(f);
+    setErr(e);
+    if (Object.keys(e).length) return;
+
+    setSending(true);
+    setServerError('');
+    try {
+      const response = await fetch('/api/demo-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(f),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.success) {
+        if (result.errors) setErr(result.errors);
+        else setServerError(result.message || 'We could not send your request. Please try again.');
+        return;
+      }
+      setDone(true);
+    } catch {
+      setServerError('Unable to connect to the server. Please try again in a moment.');
+    } finally {
+      setSending(false);
+    }
   };
   return (
     <section id="demo" className="section relative overflow-hidden bg-night py-20 text-white @tab:py-28">
@@ -210,12 +240,16 @@ export function Demo() {
                 <div>
                   <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-royal to-magenta text-white"><Icon name="check" className="h-8 w-8" stroke={2.6} /></span>
                   <h3 className="mt-5 text-2xl font-extrabold">Thank you, {f.name.trim().split(' ')[0]}.</h3>
-                  <p className="mx-auto mt-2 max-w-[38ch] text-muted">Your details passed validation. This is a design prototype, so nothing has been sent yet.</p>
-                  <button onClick={() => { setDone(false); setF(blank); setTouched(false); setErr({}); }} className="mt-6 text-[14px] font-bold text-magenta">Start over</button>
+                  <p className="mx-auto mt-2 max-w-[38ch] text-muted">Your demo request has been sent successfully. Our team will contact you soon.</p>
+                  <button onClick={() => { setDone(false); setF(blank); setTouched(false); setErr({}); setServerError(''); }} className="mt-6 text-[14px] font-bold text-magenta">Start over</button>
                 </div>
               </div>
             ) : (
               <form noValidate onSubmit={submit} className="grid gap-4 @tab:grid-cols-2">
+                <div className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                  <label htmlFor="f-website">Leave this field empty</label>
+                  <input id="f-website" name="website" type="text" tabIndex="-1" autoComplete="off" value={f.website} onChange={upd('website')} />
+                </div>
                 {FIELDS.map(([k, label, type, ac]) => (
                   <div key={k} className={k === 'email' || k === 'mobile' ? '' : k === 'name' ? '@tab:col-span-2' : ''}>
                     <label htmlFor={`f-${k}`} className="text-[13px] font-bold text-ink">{label}</label>
@@ -231,7 +265,8 @@ export function Demo() {
                 </div>
                 <div className="flex flex-col gap-3 @tab:col-span-2 @tab:flex-row @tab:items-center @tab:justify-between">
                   <p className="text-[12px] text-muted">We use these details only to arrange your demo.</p>
-                  <Btn type="submit" icon="arrow" className="h-14 px-8 text-base">Request a Demo</Btn>
+                  {serverError && <p role="alert" className="text-[12.5px] font-semibold text-rose-600 @tab:col-span-2">{serverError}</p>
+                  <Btn type="submit" icon="arrow" disabled={sending} className="h-14 px-8 text-base">{sending ? 'Sending…' : 'Request a Demo'}</Btn>
                 </div>
               </form>
             )}
