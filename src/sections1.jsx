@@ -89,7 +89,7 @@ export function Hero() {
           <div className="eyebrow flex items-center gap-1.5 !text-[0.6rem] text-white/70 whitespace-nowrap">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_12px_#F6CD20]" />Field-force engagement for pharma
           </div>
-          <h1 className="h-display mt-3">
+          <h1 className="h-display mt-3 desktop-two-lines">
             Your Field Force.<br />
             <span className="bg-gradient-to-r from-pink via-[#FF2E93] to-magenta bg-clip-text text-transparent">Your Premier League.</span>
           </h1>
