@@ -82,9 +82,9 @@ function Stadium() {
 
 export function Hero() {
   return (
-    <section id="top" className="section relative overflow-hidden bg-night text-white @desk:overflow-visible">
+    <section id="top" className="section relative overflow-hidden bg-night text-white @desk:flex @desk:h-[calc(100svh-80px)] @desk:min-h-[680px] @desk:flex-col @desk:overflow-visible">
       <Stadium />
-      <div className="relative mx-auto grid max-w-[1240px] gap-2 px-5 pt-2 @tab:px-10 @tab:pt-14 @desk:grid-cols-12 @desk:gap-8 @desk:pt-16">
+      <div className="relative mx-auto grid max-w-[1240px] gap-2 px-5 pt-2 @tab:px-10 @tab:pt-14 @desk:flex-1 @desk:grid-cols-12 @desk:gap-8 @desk:pt-8 @desk:pb-4">
         <div className="relative z-10 @desk:col-span-7 @desk:row-start-1 @desk:pt-12">
           <div className="eyebrow flex items-center gap-1.5 !text-[0.6rem] text-white/70 whitespace-nowrap">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_12px_#F6CD20]" />Field-force engagement for pharma
@@ -129,7 +129,7 @@ export function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-5 @desk:row-span-3 @desk:row-start-1 @desk:h-[700px] @desk:overflow-visible">
+    <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-5 @desk:row-span-3 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-visible">
       <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-24 @desk:-translate-x-[92%]">
         <Phone src="/assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
       </div>
