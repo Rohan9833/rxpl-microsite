@@ -99,10 +99,10 @@ export function Hero() {
           <Btn onClick={() => go('demo')} icon="arrow" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Request a Demo</Btn>
           <Btn onClick={() => go('how')} variant="ghost" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Explore RxPL</Btn>
         </div>
-        <p className="mt-2 max-w-[44ch] text-[0.8rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-7 @desk:row-start-4">
+        <p className="mt-2 max-w-[44ch] text-[0.8rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-7 @desk:row-start-2">
           Turn priority brand activities into cricket runs, regional competition, and measurable field-force engagement.
         </p>
-        <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:col-span-7 @desk:row-start-5">
+        <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:col-span-12 @desk:row-start-4 @desk:text-[15px] @desk:gap-x-10 @desk:gap-y-3">
           <span className="flex items-center gap-2"><Icon name="phone" className="h-4 w-4 text-pink" />iOS &amp; Android app</span>
           <span className="flex items-center gap-2"><Icon name="shield" className="h-4 w-4 text-pink" />Manager approval</span>
           <span className="flex items-center gap-2"><Icon name="chart" className="h-4 w-4 text-pink" />Head Office reports</span>
@@ -132,7 +132,7 @@ function HeroVisual() {
 function Ticker() {
   return (
     <div className="relative border-y border-white/10 bg-[#0B061F]/90">
-      <div className="hide-scroll mx-auto flex max-w-[1240px] items-center gap-2 overflow-x-auto px-3 py-4 @tab:px-10">
+      <div className="hide-scroll mx-auto flex max-w-[1240px] items-center gap-2 overflow-x-auto px-3 py-4 @tab:px-10 @desk:justify-between @desk:gap-4">
         <span className="eyebrow shrink-0 text-white/50">Runs on the board</span>
         <div className="flex shrink-0 gap-2">{[1, 2, 3, 4, 6].map((n) => <RunChip key={n} n={n} size="sm" />)}</div>
         <span className="h-5 w-px shrink-0 bg-white/15" />
@@ -140,7 +140,7 @@ function Ticker() {
         <span className="shrink-0 text-sm font-semibold text-white/70">POB</span>
         <span className="shrink-0 text-sm font-semibold text-white/70">Camps</span>
         <span className="shrink-0 text-sm font-semibold text-white/70">Doctor conversion</span>
-        <span className="ml-auto hidden shrink-0 text-sm text-white/45 @desk:block">Scoring rules set by your company</span>
+        <span className="hidden shrink-0 text-sm text-white/45 @desk:block">Scoring rules set by your company</span>
       </div>
     </div>
   );
