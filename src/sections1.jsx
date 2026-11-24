@@ -102,6 +102,11 @@ export function Hero() {
             <Btn onClick={() => go('demo')} icon="arrow" className="h-14 justify-center px-8 text-base">Request a Demo</Btn>
             <Btn onClick={() => go('how')} variant="ghost" className="h-14 justify-center px-8 text-base">Explore RxPL</Btn>
           </div>
+          <div className="hidden mt-5 w-full items-center justify-between gap-4 text-[13px] font-semibold text-white/55 @desk:flex @desk:text-[14px]">
+            <span className="flex items-center gap-1.5 whitespace-nowrap"><Icon name="phone" className="h-4 w-4 shrink-0 text-pink" />iOS &amp; Android app</span>
+            <span className="flex items-center gap-1.5 whitespace-nowrap"><Icon name="shield" className="h-4 w-4 shrink-0 text-pink" />Manager approval</span>
+            <span className="flex items-center gap-1.5 whitespace-nowrap"><Icon name="chart" className="h-4 w-4 shrink-0 text-pink" />Head Office reports</span>
+          </div>
         </div>
         <HeroVisual />
         <div className="flex flex-row gap-3 @desk:col-span-7 @desk:row-start-3 @desk:hidden">
@@ -111,7 +116,7 @@ export function Hero() {
         <p className="mt-2 max-w-[44ch] text-[0.8rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-7 @desk:row-start-2 @desk:hidden">
           Turn priority brand activities into cricket runs, regional competition, and measurable field-force engagement.
         </p>
-        <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:col-span-12 @desk:row-start-4 @desk:w-full @desk:justify-between @desk:text-[15px] @desk:gap-x-4 @desk:gap-y-3">
+        <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:hidden">
           <span className="flex items-center gap-2"><Icon name="phone" className="h-4 w-4 text-pink" />iOS &amp; Android app</span>
           <span className="flex items-center gap-2"><Icon name="shield" className="h-4 w-4 text-pink" />Manager approval</span>
           <span className="flex items-center gap-2"><Icon name="chart" className="h-4 w-4 text-pink" />Head Office reports</span>
@@ -133,7 +138,7 @@ function HeroVisual() {
       </div>
       <img src="/assets/app-push-banner.png" alt="RxPL push notification: A perfect drive to the boundary! 4 Runs – Guwahati Champions"
         className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-0" />
-      <div className="absolute bottom-24 right-0 hidden text-[11px] font-semibold tracking-wide text-white/45 @desk:block">Screens from the RxPL app</div>
+      
     </div>
   );
 }
