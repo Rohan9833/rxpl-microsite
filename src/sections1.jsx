@@ -115,7 +115,7 @@ export function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative h-[520px] @md:h-[460px] @tab:h-[560px] @desk:col-span-5 @desk:h-[700px] @desk:overflow-visible">
+    <div className="relative h-[440px] @md:h-[460px] @tab:h-[560px] @desk:col-span-5 @desk:h-[700px] @desk:overflow-visible">
       <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-24 @desk:-translate-x-[92%]">
         <Phone src="/assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
       </div>
