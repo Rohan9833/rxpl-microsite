@@ -132,14 +132,14 @@ function HeroVisual() {
     <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-6 @desk:row-span-1 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-hidden @desk:rounded-[36px]">
       <div className="pointer-events-none absolute inset-x-[8%] top-[8%] hidden h-[78%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(132,70,220,0.35),rgba(227,18,122,0.10)_45%,transparent_72%)] @desk:block" />
       <div className="pointer-events-none absolute inset-x-[12%] top-[12%] hidden aspect-square rounded-full border border-white/10 @desk:block" />
-      <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-1/2 @desk:w-[39%] @desk:max-w-[245px] @desk:-translate-x-[90%] @desk:-translate-y-[38%]">
+      <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-1/2 @desk:w-[33%] @desk:max-w-[210px] @desk:-translate-x-[90%] @desk:-translate-y-[38%]">
         <Phone src="/assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
       </div>
-      <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-1/2 @desk:w-[47%] @desk:max-w-[290px] @desk:-translate-x-[18%] @desk:-translate-y-[40%]">
+      <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-1/2 @desk:w-[39%] @desk:max-w-[240px] @desk:-translate-x-[18%] @desk:-translate-y-[40%]">
         <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
       </div>
       <img src="/assets/app-push-banner.png" alt="RxPL push notification: A perfect drive to the boundary! 4 Runs – Guwahati Champions"
-        className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[72%] @desk:max-w-[390px]" />
+        className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" />
     </div>
   );
 }
