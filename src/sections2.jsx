@@ -130,7 +130,7 @@ function Bracket() {
 
       {/* Compact: round picker */}
       <div className="mt-6 @desk:hidden">
-        <div className="hide-scroll flex gap-2 overflow-x-auto">
+        <div className="grid grid-cols-3 gap-2">
           {rounds.map(([id, label]) => (
             <button key={id} onClick={() => setRound(id)} className={`shrink-0 rounded-full px-4 py-2 text-[13px] font-bold ${round === id ? 'bg-white text-ink' : 'bg-white/10 text-white/70'}`}>{label}</button>
           ))}
