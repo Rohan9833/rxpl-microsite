@@ -335,3 +335,105 @@ h1, h2, h3 { text-wrap: balance; font-family: var(--font-display); }
   .h-display { font-size: clamp(2rem, 3.7cqi, 3.5rem); }
   .h-section { font-size: clamp(1.65rem, 3.1cqi, 2.8rem); }
 }
+
+
+/* Desktop-only section sizing: compact vertical rhythm on large viewports.
+   Container queries keep mobile and tablet styles completely untouched. */
+@container (min-width: 1100px) {
+  .section:not(#top) {
+    padding-top: clamp(2rem, 4.5vh, 3.5rem) !important;
+    padding-bottom: clamp(2rem, 4.5vh, 3.5rem) !important;
+  }
+
+  #top {
+    min-height: 0 !important;
+    height: min( calc(100svh - 80px), 900px) !important;
+  }
+
+  #top > div:first-of-type {
+    padding-top: clamp(1rem, 2.5vh, 2rem) !important;
+    padding-bottom: clamp(.75rem, 2vh, 1.5rem) !important;
+    gap: clamp(.75rem, 2vh, 1.5rem) !important;
+  }
+
+  #top > div:first-of-type > div:first-child {
+    padding-top: clamp(1rem, 3vh, 2.25rem) !important;
+  }
+
+  #top .h-display {
+    font-size: clamp(2rem, 3.2cqi, 3.25rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  #top .h-display + p {
+    margin-top: clamp(.75rem, 2vh, 1.25rem) !important;
+    font-size: clamp(.9rem, 1.05vw, 1rem) !important;
+  }
+
+  #top .h-display ~ div {
+    margin-top: clamp(.75rem, 2vh, 1.25rem) !important;
+  }
+
+  #how .mx-auto,
+  #scoring .mx-auto,
+  #tournament .mx-auto,
+  #app .mx-auto,
+  #approval .mx-auto,
+  #dashboard .mx-auto,
+  #benefits .mx-auto,
+  #demo .mx-auto {
+    max-width: 1240px;
+  }
+
+  #how .h-section,
+  #scoring .h-section,
+  #tournament .h-section,
+  #app .h-section,
+  #approval .h-section,
+  #dashboard .h-section,
+  #benefits .h-section,
+  #demo .h-section {
+    font-size: clamp(1.6rem, 2.7cqi, 2.55rem) !important;
+    line-height: 1.04 !important;
+  }
+
+  #how .mt-5, #scoring .mt-5, #tournament .mt-5, #app .mt-5,
+  #approval .mt-5, #dashboard .mt-5, #benefits .mt-5, #demo .mt-5 {
+    margin-top: clamp(.65rem, 1.6vh, 1.25rem) !important;
+  }
+
+  #how .mt-10, #tournament .mt-10 { margin-top: clamp(1rem, 2.4vh, 2rem) !important; }
+  #how .mt-12, #dashboard .mt-12, #app .mt-16 { margin-top: clamp(1.25rem, 3vh, 2.5rem) !important; }
+  #benefits .gap-12, #demo .gap-12 { gap: clamp(1.5rem, 3vh, 2.5rem) !important; }
+
+  #how ol { gap: clamp(.65rem, 1.4vh, 1.1rem) !important; }
+  #how ol > li { padding: clamp(.65rem, 1.4vh, 1.1rem) !important; }
+  #how ol > li h3 { font-size: clamp(.95rem, 1.2vw, 1.15rem) !important; }
+
+  #scoring .mt-5 { margin-top: clamp(.75rem, 2vh, 1.5rem) !important; }
+  #scoring .gap-6 { gap: clamp(.75rem, 2vh, 1.5rem) !important; }
+  #scoring .py-8 { padding-top: clamp(1rem, 2.4vh, 2rem) !important; padding-bottom: clamp(1rem, 2.4vh, 2rem) !important; }
+
+  #tournament .mt-8 { margin-top: clamp(1rem, 2.5vh, 2rem) !important; }
+  #tournament .mt-6 { margin-top: clamp(.75rem, 2vh, 1.5rem) !important; }
+
+  #app ul { margin-top: clamp(1.5rem, 4vh, 3rem) !important; }
+  #app ul li { padding-top: clamp(1rem, 2vh, 1.5rem) !important; padding-bottom: clamp(1rem, 2vh, 1.5rem) !important; }
+
+  #approval .gap-6 { gap: clamp(.75rem, 2vh, 1.5rem) !important; }
+  #approval li { padding-top: clamp(.75rem, 1.8vh, 1.5rem) !important; padding-bottom: clamp(.75rem, 1.8vh, 1.5rem) !important; }
+
+  #dashboard .mt-12 { margin-top: clamp(1.25rem, 3vh, 2.5rem) !important; }
+  #dashboard ul { margin-top: clamp(1.25rem, 3vh, 2.5rem) !important; }
+
+  #benefits .gap-12 { gap: clamp(1.5rem, 3vh, 2.5rem) !important; }
+  #benefits ol li { padding-top: clamp(1rem, 2.4vh, 2rem) !important; padding-bottom: clamp(1rem, 2.4vh, 2rem) !important; }
+  #benefits ol li:first-child { padding-top: 0 !important; }
+
+  #demo ul { margin-top: clamp(1.25rem, 3vh, 2.5rem) !important; }
+  #demo .rounded-3xl { padding: clamp(1rem, 2.4vh, 2rem) !important; }
+  #demo input { height: clamp(2.6rem, 5vh, 3rem) !important; }
+  #demo textarea { padding-block: clamp(.5rem, 1.2vh, .75rem) !important; }
+
+  footer .py-14 { padding-top: clamp(2rem, 4vh, 3rem) !important; padding-bottom: clamp(2rem, 4vh, 3rem) !important; }
+}
