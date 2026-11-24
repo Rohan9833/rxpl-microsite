@@ -82,9 +82,9 @@ function Stadium() {
 
 export function Hero() {
   return (
-    <section id="top" className="section relative overflow-hidden bg-night text-white @desk:flex @desk:h-[calc(100svh-80px)] @desk:min-h-[680px] @desk:flex-col @desk:overflow-visible">
+    <section id="top" className="section relative overflow-hidden bg-night text-white @desk:flex @desk:h-[calc(100svh-80px)] @desk:min-h-[680px] @desk:flex-col @desk:overflow-hidden">
       <Stadium />
-      <div className="relative mx-auto grid w-full max-w-[1320px] gap-2 px-5 pt-2 @tab:px-10 @tab:pt-14 @desk:flex-1 @desk:grid-cols-12 @desk:items-center @desk:gap-16 @desk:px-12 @desk:pt-8 @desk:pb-8">
+      <div className="relative mx-auto grid w-full max-w-[1320px] gap-2 px-5 pt-2 @tab:px-10 @tab:pt-14 @desk:flex-1 @desk:min-h-0 @desk:grid-cols-12 @desk:grid-rows-1 @desk:items-center @desk:gap-16 @desk:px-12 @desk:pt-8 @desk:pb-8">
         <div className="relative z-10 @desk:col-span-6 @desk:row-start-1 @desk:pt-0 @desk:max-w-[600px]">
           <div className="eyebrow flex items-center gap-1.5 !text-[0.6rem] text-white/70 whitespace-nowrap @desk:!text-[0.72rem]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_12px_#F6CD20]" />Field-force engagement for pharma
@@ -129,7 +129,7 @@ export function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-6 @desk:row-span-3 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-visible @desk:rounded-[36px]">
+    <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-6 @desk:row-span-1 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-hidden @desk:rounded-[36px]">
       <div className="pointer-events-none absolute inset-x-[8%] top-[8%] hidden h-[78%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(132,70,220,0.35),rgba(227,18,122,0.10)_45%,transparent_72%)] @desk:block" />
       <div className="pointer-events-none absolute inset-x-[12%] top-[12%] hidden aspect-square rounded-full border border-white/10 @desk:block" />
       <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-1/2 @desk:w-[39%] @desk:max-w-[245px] @desk:-translate-x-[90%] @desk:-translate-y-[46%]">
@@ -146,7 +146,7 @@ function HeroVisual() {
 
 function Ticker() {
   return (
-    <div className="relative border-y border-white/10 bg-[#0B061F]/90">
+    <div className="relative shrink-0 border-y border-white/10 bg-[#0B061F]/90">
       <div className="hide-scroll mx-auto flex max-w-[1240px] items-center gap-2 overflow-x-auto px-3 py-4 @tab:px-10 @desk:justify-between @desk:gap-4">
         <span className="eyebrow shrink-0 text-white/50">Runs on the board</span>
         <div className="flex shrink-0 gap-2">{[1, 2, 3, 4, 6].map((n) => <RunChip key={n} n={n} size="sm" />)}</div>
