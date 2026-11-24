@@ -241,11 +241,11 @@ export function Scoring() {
 
         <div className="mt-5 grid gap-6 @desk:grid-cols-12">
           <div className="scoreboard overflow-hidden rounded-3xl @desk:col-span-8">
-            <div className="hide-scroll flex gap-1 overflow-x-auto border-b border-white/10 p-2" role="tablist" aria-label="Activity category">
+            <div className="flex w-full gap-1 border-b border-white/10 p-1" role="tablist" aria-label="Activity category">
               {SCORING.map((s, k) => (
                 <button key={s.id} role="tab" aria-selected={cat === k} onClick={() => pick(k)}
-                  className={`flex shrink-0 items-center gap-2 rounded-2xl px-4 py-3 text-[14px] font-bold transition ${cat === k ? 'bg-white text-ink' : 'text-white/65 hover:bg-white/5 hover:text-white'}`}>
-                  <Icon name={s.icon} className="h-[18px] w-[18px]" />{s.label}
+                  className={`flex min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-xl px-1 py-2 text-center text-[10px] font-bold leading-tight transition @tab:flex-row @tab:gap-2 @tab:px-3 @tab:py-3 @tab:text-sm ${cat === k ? 'bg-white text-ink' : 'text-white/65 hover:bg-white/5 hover:text-white'}`}>
+                  <Icon name={s.icon} className="h-[18px] w-[18px] shrink-0" /><span className="min-w-0 whitespace-normal">{s.label}</span>
                 </button>
               ))}
             </div>
