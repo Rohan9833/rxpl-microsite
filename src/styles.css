@@ -330,8 +330,8 @@ h1, h2, h3 { text-wrap: balance; font-family: var(--font-display); }
 
 /* Keep desktop headings on a single line. */
 @container (min-width: 760px) {
-  h1, h2, h3, h4, h5, h6 { white-space: nowrap; text-wrap: nowrap; }
-  h1 br, h2 br, h3 br, h4 br, h5 br, h6 br { display: none; }
+  h1:not(.desktop-two-lines), h2:not(.desktop-two-lines), h3, h4, h5, h6 { white-space: nowrap; text-wrap: nowrap; }
+  h1:not(.desktop-two-lines) br, h2:not(.desktop-two-lines) br, h3 br, h4 br, h5 br, h6 br { display: none; }\n  .desktop-two-lines { white-space: normal; text-wrap: balance; }\n  .desktop-two-lines br { display: inline; }
   .h-display { font-size: clamp(2rem, 3.7cqi, 3.5rem); }
   .h-section { font-size: clamp(1.65rem, 3.1cqi, 2.8rem); }
 }
