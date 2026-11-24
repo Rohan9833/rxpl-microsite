@@ -132,7 +132,7 @@ function Bracket() {
       <div className="mt-6 @desk:hidden">
         <div className="grid grid-cols-3 gap-2">
           {rounds.map(([id, label]) => (
-            <button key={id} onClick={() => setRound(id)} className={`shrink-0 rounded-full px-4 py-2 text-[13px] font-bold ${round === id ? 'bg-white text-ink' : 'bg-white/10 text-white/70'}`}>{label}</button>
+            <button key={id} onClick={() => setRound(id)} className={`min-w-0 whitespace-nowrap rounded-full px-1 py-2 text-[11px] font-bold ${round === id ? 'bg-white text-ink' : 'bg-white/10 text-white/70'}`}>{label}</button>
           ))}
         </div>
         <div className="mt-4 grid gap-3 @tab:grid-cols-2" key={round}>
