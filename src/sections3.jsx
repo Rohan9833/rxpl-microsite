@@ -195,7 +195,7 @@ export function Demo() {
       <div className="relative mx-auto grid max-w-[1240px] gap-12 px-5 @tab:px-10 @desk:grid-cols-12">
         <div className="@desk:col-span-5">
           <div className="eyebrow flex items-center gap-2.5 text-pink"><span className="h-px w-8 bg-current" />Request a demo</div>
-          <h2 className="h-section mt-4">Ready to Launch Your Own Premier League?</h2>
+          <h2 className="h-section mt-4 desktop-two-lines">Ready to Launch Your Own<br />Premier League?</h2>
           <p className="mt-5 max-w-[42ch] text-[1.05rem] leading-relaxed text-white/70">Engage your field force, activate your brand priorities, and create a competitive experience across your regions and zones.</p>
           <ul className="mt-8 space-y-3 text-[15px] font-semibold text-white/85">
             {['See the iOS and Android app in action', 'Walk through scoring rules for your brands', 'Plan teams, zones and tournament format', 'Preview manager approval and Head Office reports'].map((x) => (
