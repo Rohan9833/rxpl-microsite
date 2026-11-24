@@ -263,7 +263,7 @@ export function Demo() {
                 </div>
                 <div className="flex flex-col gap-3 @tab:col-span-2 @tab:flex-row @tab:items-center @tab:justify-between">
                   <p className="text-[12px] text-muted">We use these details only to arrange your demo.</p>
-                  {serverError && <p role="alert" className="text-[12.5px] font-semibold text-rose-600 @tab:col-span-2">{serverError}</p>
+                  {serverError && <p role="alert" className="text-[12.5px] font-semibold text-rose-600 @tab:col-span-2">{serverError}</p>}
                   <Btn type="submit" icon="arrow" disabled={sending} className="h-14 px-8 text-base">{sending ? 'Sending…' : 'Request a Demo'}</Btn>
                 </div>
               </form>
