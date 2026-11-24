@@ -130,12 +130,12 @@ export function Hero() {
 function HeroVisual() {
   return (
     <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-6 @desk:row-span-3 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-visible">
-      <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-24 @desk:-translate-x-[92%]">
-        <Phone src="/assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
-      </div>
-      <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-10">
-        <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
-      </div>
+      <div className="absolute left-1/2 top-6 w-[52%] max-w-[250px] -translate-x-[95%] -rotate-[8deg] opacity-80 @desk:top-24 @desk:w-[40%] @desk:max-w-[198px] @desk:-translate-x-[92%]">
+  <Phone src="/assets/app-upcoming-match.jpg" alt="RxPL app: Upcoming Match card" />
+</div>
+      <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-10 @desk:w-[45%] @desk:max-w-[232px]">
+  <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
+</div>
       <img src="/assets/app-push-banner.png" alt="RxPL push notification: A perfect drive to the boundary! 4 Runs – Guwahati Champions"
         className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-0" />
       
