@@ -162,7 +162,6 @@ const FIELDS = [
   ['email', 'Business Email', 'email', 'email', true],
   ['mobile', 'Mobile Number', 'tel', 'tel', true],
 ];
-const FREE = ['gmail.com', 'yahoo.com', 'yahoo.co.in', 'hotmail.com', 'outlook.com', 'rediffmail.com', 'icloud.com'];
 
 function validate(f) {
   const e = {};
@@ -170,7 +169,6 @@ function validate(f) {
   if (!f.company.trim()) e.company = 'Enter your company name.';
   if (!f.designation.trim()) e.designation = 'Enter your designation, for example Brand Manager.';
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) e.email = 'Enter an email address like name@company.com.';
-  else if (FREE.includes(f.email.trim().split('@')[1].toLowerCase())) e.email = 'Use your company email address rather than a personal one.';
   const digits = f.mobile.replace(/[\s()-]/g, '');
   if (!/^(\+?\d{1,3})?\d{10}$/.test(digits)) e.mobile = 'Enter a 10-digit mobile number, with country code if outside India.';
   return e;
