@@ -411,7 +411,7 @@ export function AppShowcase() {
   return (
     <section
       id="app"
-      className="section relative overflow-hidden bg-night py-20 text-white @tab:py-28 @desk:overflow-visible"
+      className="section relative overflow-hidden bg-night py-20 text-white @tab:py-28 @desk:h-[100svh] @desk:min-h-0 @desk:overflow-hidden @desk:py-0"
     >
       <div
         className="pointer-events-none absolute inset-0"
@@ -420,7 +420,7 @@ export function AppShowcase() {
             "radial-gradient(50% 40% at 50% 62%, rgba(227,18,122,.28), transparent 70%), radial-gradient(40% 40% at 10% 10%, rgba(122,53,190,.3), transparent 70%)",
         }}
       />
-      <div className="relative mx-auto max-w-[1240px] px-5 @tab:px-10">
+      <div className="relative mx-auto max-w-[1240px] px-5 @tab:px-10 @desk:flex @desk:h-full @desk:flex-col @desk:justify-center @desk:px-8 @desk:py-5">
         <SectionHead
           dark
           eyebrow="The RxPL app"
@@ -453,11 +453,11 @@ export function AppShowcase() {
         </SectionHead>
 
         {/* Wide: three phones, selectable */}
-        <div className="mt-14 hidden @tab:block">
-          <div className="relative flex items-end justify-center gap-[4%]">
+        <div className="mt-8 hidden @tab:block @desk:mt-4 @desk:flex-1 @desk:min-h-0 @desk:flex @desk:flex-col @desk:justify-center">
+          <div className="relative flex items-end justify-center gap-[3%] @desk:max-h-[46svh]">
             <button
               onClick={() => setSel((sel - 1 + n) % n)}
-              className="w-[19%] max-w-[198px] translate-y-6 -rotate-3 opacity-70 transition hover:opacity-100"
+              className="w-[17%] max-w-[180px] translate-y-4 -rotate-3 opacity-70 transition hover:opacity-100 @desk:w-[15%] @desk:max-w-[150px] @desk:translate-y-2"
               aria-label={`Show ${at(sel - 1).title}`}
             >
               <Phone
@@ -468,7 +468,7 @@ export function AppShowcase() {
                 {at(sel - 1).title}
               </div>
             </button>
-            <div className="w-[24%] max-w-[248px]" key={sel}>
+            <div className="w-[22%] max-w-[220px] @desk:w-[19%] @desk:max-w-[190px]" key={sel}>
               <Phone
                 src={at(sel).src}
                 alt={`RxPL app: ${at(sel).title}`}
@@ -480,7 +480,7 @@ export function AppShowcase() {
             </div>
             <button
               onClick={() => setSel((sel + 1) % n)}
-              className="w-[19%] max-w-[198px] translate-y-6 rotate-3 opacity-70 transition hover:opacity-100"
+              className="w-[17%] max-w-[180px] translate-y-4 rotate-3 opacity-70 transition hover:opacity-100 @desk:w-[15%] @desk:max-w-[150px] @desk:translate-y-2"
               aria-label={`Show ${at(sel + 1).title}`}
             >
               <Phone
@@ -492,10 +492,10 @@ export function AppShowcase() {
               </div>
             </button>
           </div>
-          <div className="mx-auto mt-6 max-w-[52ch] text-center text-[15px] text-white/65">
+          <div className="mx-auto mt-3 max-w-[52ch] text-center text-[15px] text-white/65 @desk:mt-2 @desk:text-[13px]">
             {at(sel).text}
           </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-2">
+          <div className="mt-5 flex flex-wrap justify-center gap-2 @desk:mt-3">
             {SCREENS.map((s, k) => (
               <button
                 key={s.id}
@@ -563,13 +563,13 @@ export function AppShowcase() {
           </div>
         </div>
 
-        <ul className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 @md:grid-cols-2 @desk:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 @md:grid-cols-2 @desk:mt-4 @desk:grid-cols-3">
           {feats.map(([ic, label]) => (
             <li
               key={label}
-              className="flex items-center gap-4 bg-night px-6 py-5"
+              className="flex items-center gap-4 bg-night px-6 py-5 @desk:gap-3 @desk:px-4 @desk:py-3"
             >
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/[.06] text-pink">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/[.06] text-pink @desk:h-8 @desk:w-8">
                 <Icon name={ic} />
               </span>
               <span className="text-[15px] font-bold">{label}</span>
