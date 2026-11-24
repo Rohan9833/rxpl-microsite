@@ -214,7 +214,7 @@ export function AppShowcase() {
       <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(50% 40% at 50% 62%, rgba(227,18,122,.28), transparent 70%), radial-gradient(40% 40% at 10% 10%, rgba(122,53,190,.3), transparent 70%)' }} />
       <div className="relative mx-auto max-w-[1240px] px-5 @tab:px-10">
         <SectionHead dark eyebrow="The RxPL app" title={<>A Premier League Experience.<br />In Every Player’s Pocket.</>}>
-          <p className="max-w-[46ch] text-[1.05rem] leading-relaxed text-white/70">Every MR gets a profile, a scorecard and a seat in the Match Centre on iOS and Android.</p>
+          <p className="max-w-[46ch] text-[0.7rem] leading-relaxed text-white/70">Every MR gets a profile, a scorecard and a seat in the Match Centre on iOS and Android.</p>
           <div className="mt-4 flex flex-wrap gap-2">
             <Tag><Icon name="apple" className="h-3.5 w-3.5" />iOS</Tag><Tag><Icon name="android" className="h-3.5 w-3.5" />Android</Tag>
             <Tag><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />Actual app screens</Tag>

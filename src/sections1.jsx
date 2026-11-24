@@ -84,9 +84,9 @@ export function Hero() {
   return (
     <section id="top" className="section relative overflow-hidden bg-night text-white">
       <Stadium />
-      <div className="relative mx-auto grid max-w-[1240px] gap-4 px-5 pt-2 @tab:px-10 @tab:pt-14 @desk:grid-cols-12 @desk:gap-8 @desk:pt-16">
+      <div className="relative mx-auto grid max-w-[1240px] gap-2 px-5 pt-2 @tab:px-10 @tab:pt-14 @desk:grid-cols-12 @desk:gap-8 @desk:pt-16">
         <div className="relative z-10 @desk:col-span-7 @desk:row-start-1 @desk:pt-12">
-          <div className="eyebrow flex items-center gap-1.5 text-xs text-white/70 whitespace-nowrap">
+          <div className="eyebrow flex items-center gap-1.5 !text-[0.6rem] text-white/70 whitespace-nowrap">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_12px_#F6CD20]" />Field-force engagement for pharma
           </div>
           <h1 className="h-display mt-3">
@@ -99,7 +99,7 @@ export function Hero() {
           <Btn onClick={() => go('demo')} icon="arrow" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Request a Demo</Btn>
           <Btn onClick={() => go('how')} variant="ghost" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Explore RxPL</Btn>
         </div>
-        <p className="mt-2 max-w-[44ch] text-[1.08rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-7 @desk:row-start-4">
+        <p className="mt-2 max-w-[44ch] text-[0.8rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-7 @desk:row-start-4">
           Turn priority brand activities into cricket runs, regional competition, and measurable field-force engagement.
         </p>
         <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:col-span-7 @desk:row-start-5">
@@ -132,7 +132,7 @@ function HeroVisual() {
 function Ticker() {
   return (
     <div className="relative border-y border-white/10 bg-[#0B061F]/90">
-      <div className="hide-scroll mx-auto flex max-w-[1240px] items-center gap-6 overflow-x-auto px-5 py-4 @tab:px-10">
+      <div className="hide-scroll mx-auto flex max-w-[1240px] items-center gap-2 overflow-x-auto px-3 py-4 @tab:px-10">
         <span className="eyebrow shrink-0 text-white/50">Runs on the board</span>
         <div className="flex shrink-0 gap-2">{[1, 2, 3, 4, 6].map((n) => <RunChip key={n} n={n} size="sm" />)}</div>
         <span className="h-5 w-px shrink-0 bg-white/15" />
@@ -179,22 +179,22 @@ export function HowItWorks() {
   }, []);
   return (
     <section id="how" className="section bg-mist py-20 text-ink @tab:py-28">
-      <div className="mx-auto max-w-[1240px] px-5 @tab:px-10">
+      <div className="mx-auto max-w-[1240px] px-5 py-3 @tab:px-10">
         <SectionHead eyebrow="How RxPL works" title="Every Activity Counts. Every Run Matters."
           intro="RxPL is a business activity engagement platform built around cricket-style competition. It is not fantasy cricket, betting, a CRM or a sales report." />
-        <ol className="relative mt-14 grid gap-4 @desk:grid-cols-4 @desk:gap-5">
+        <ol className="relative mt-5 grid gap-4 @desk:grid-cols-4 @desk:gap-5">
           <div className="flowline absolute left-[12%] right-[12%] top-[38px] hidden h-[2px] opacity-50 @desk:block" />
           <div className="flowline-v absolute bottom-10 left-[27px] top-10 w-[2px] opacity-40 @desk:hidden" />
           {STEPS.map((s, i) => (
             <li key={s.title} onMouseEnter={() => setActive(i)}
-              className={`relative flex gap-4 rounded-2xl border bg-white p-5 transition duration-500 @desk:flex-col @desk:p-6 ${active === i ? 'border-magenta/40 shadow-[0_24px_50px_-28px_rgba(227,18,122,.55)] @desk:-translate-y-1' : 'border-ink/10'}`}>
+              className={`relative flex gap-4 rounded-2xl border bg-white p-3 transition duration-500 @desk:flex-col @desk:p-6 ${active === i ? 'border-magenta/40 shadow-[0_24px_50px_-28px_rgba(227,18,122,.55)] @desk:-translate-y-1' : 'border-ink/10'}`}>
               <div className={`relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-2xl transition duration-500 ${active === i ? 'bg-gradient-to-br from-royal to-magenta text-white' : 'bg-lavender text-royal'}`}>
                 <Icon name={s.icon} className="h-6 w-6" />
               </div>
               <div className="flex-1">
                 <div className="font-score text-sm font-bold tracking-widest text-magenta tnum">STEP {String(i + 1).padStart(2, '0')}</div>
-                <h3 className="mt-1 text-xl font-extrabold tracking-tight">{s.title}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-muted">{s.text}</p>
+                <h3 className="mt-0 text-s font-extrabold tracking-tight">{s.title}</h3>
+                <p className="mt-2 text-[12px] leading-relaxed text-muted">{s.text}</p>
                 <div className="mt-4"><StepVisual i={i} /></div>
               </div>
             </li>
@@ -226,7 +226,7 @@ export function Scoring() {
         <SectionHead dark eyebrow="Configurable scoring" title={<>You Set the Rules.<br />They Score the Runs.</>}
           intro="Every client sets its own scoring. Decide which activities matter most and what each one is worth on the scoreboard." />
 
-        <div className="mt-12 grid gap-6 @desk:grid-cols-12">
+        <div className="mt-5 grid gap-6 @desk:grid-cols-12">
           <div className="scoreboard overflow-hidden rounded-3xl @desk:col-span-8">
             <div className="hide-scroll flex gap-1 overflow-x-auto border-b border-white/10 p-2" role="tablist" aria-label="Activity category">
               {SCORING.map((s, k) => (
@@ -243,7 +243,7 @@ export function Scoring() {
                   {c.rules.map((r, k) => (
                     <li key={r.act} className="rise" style={{ animationDelay: `${k * 50}ms` }}>
                       <button onClick={() => score(r)}
-                        className={`group flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left transition ${hit === r ? 'border-gold/60 bg-gold/10' : 'border-white/10 bg-white/[.03] hover:border-white/25 hover:bg-white/[.06]'}`}>
+                        className={`group flex w-full items-center gap-1.5 rounded-xl border px-2 py-3 text-left transition ${hit === r ? 'border-gold/60 bg-gold/10' : 'border-white/10 bg-white/[.03] hover:border-white/25 hover:bg-white/[.06]'}`}>
                         <span className="flex-1">
                           <span className="block text-[15px] font-bold text-white">{r.act}</span>
                         </span>
@@ -253,7 +253,7 @@ export function Scoring() {
                   ))}
                 </ul>
               </div>
-              <div className="order-1 flex flex-col border-b border-white/10 bg-black/20 p-5 @tab:order-2 @tab:border-b-0 @tab:border-l">
+              <div className="order-1 flex flex-col border-b border-white/10 bg-black/20 p-3 @tab:order-2 @tab:border-b-0 @tab:border-l">
                 <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-[.2em] text-white/45">
                   <span>Scoreboard</span><span className="flex items-center gap-1.5 text-pink"><span className="live-dot h-1.5 w-1.5 rounded-full bg-pink" />Demo</span>
                 </div>

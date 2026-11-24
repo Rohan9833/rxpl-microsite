@@ -42,7 +42,7 @@ export function Crest({ t, size = 34 }) {
 
 export function SectionHead({ eyebrow, title, intro, dark = false, children }) {
   return (
-    <div className="grid gap-6 @desk:grid-cols-12 @desk:items-end">
+    <div className="grid gap-3 @desk:grid-cols-12 @desk:items-end">
       <div className="@desk:col-span-7">
         <div className={`eyebrow flex items-center gap-2.5 ${dark ? 'text-pink' : 'text-magenta'}`}>
           <span className="h-px w-8 bg-current" />{eyebrow}
