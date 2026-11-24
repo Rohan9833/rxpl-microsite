@@ -178,15 +178,15 @@ export function Tournament() {
           intro="Group players into regional or zonal teams with their own cricket-style names, then run a league or a knockout." />
         <div className="mt-10 flex flex-col gap-5 @desk:flex-row @desk:items-center @desk:justify-between">
           <Segmented value={mode} onChange={setMode} options={[['league', 'League format', 'list'], ['knockout', 'Knockout format', 'trophy']]} />
-          <ul className="grid grid-cols-1 gap-x-6 gap-y-2 text-[13.5px] font-semibold text-ink/75 @tab:flex @tab:flex-wrap">
-            {['Custom team names', 'Regional & zonal competition', 'Knockout or league', 'Rankings & match schedules'].map((x) => (
-              <li key={x} className="flex items-center gap-2"><Icon name="check" className="h-4 w-4 shrink-0 text-magenta" stroke={2.4} />{x}</li>
-            ))}
-          </ul>
         </div>
         <div className="mt-8" key={mode}>
           <div className="rise">{mode === 'league' ? <LeagueTable /> : <Bracket />}</div>
         </div>
+        <ul className="mt-6 grid grid-cols-1 gap-x-6 gap-y-2 text-[13.5px] font-semibold text-ink/75 @tab:flex @tab:flex-wrap">
+          {['Custom team names', 'Regional & zonal competition', 'Knockout or league', 'Rankings & match schedules'].map((x) => (
+            <li key={x} className="flex items-center gap-2"><Icon name="check" className="h-4 w-4 shrink-0 text-magenta" stroke={2.4} />{x}</li>
+          ))}
+        </ul>
       </div>
     </section>
   );
