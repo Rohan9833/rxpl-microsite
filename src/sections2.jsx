@@ -205,16 +205,18 @@ export function AppShowcase() {
     const physical = Math.round(el.scrollLeft / el.clientWidth);
     setSlide(Math.max(0, Math.min(n - 1, physical - 1)));
   };
-  const onScrollEnd = () => {
-    const el = scroller.current; if (!el) return;
-    const physical = Math.round(el.scrollLeft / el.clientWidth);
-    // Only jump after the swipe animation has finished, so the loop doesn't interrupt the gesture.
-    if (physical === 0) el.scrollTo({ left: n * el.clientWidth, behavior: 'instant' });
-    else if (physical === n + 1) el.scrollTo({ left: el.clientWidth, behavior: 'instant' });
-  };
   useEffect(() => {
     const el = scroller.current;
-    if (el) el.scrollTo({ left: el.clientWidth, behavior: 'auto' });
+    if (!el) return;
+    const jumpFromClone = () => {
+      const physical = Math.round(el.scrollLeft / el.clientWidth);
+      // Move from the duplicated slides to their matching real slides after scrolling settles.
+      if (physical === 0) el.scrollTo({ left: n * el.clientWidth, behavior: 'instant' });
+      else if (physical === n + 1) el.scrollTo({ left: el.clientWidth, behavior: 'instant' });
+    };
+    el.addEventListener('scrollend', jumpFromClone);
+    el.scrollTo({ left: el.clientWidth, behavior: 'instant' });
+    return () => el.removeEventListener('scrollend', jumpFromClone);
   }, []);
   const toSlide = (k) => {
     const el = scroller.current;
@@ -263,7 +265,7 @@ export function AppShowcase() {
 
         {/* Compact: swipeable, full-width slides */}
         <div className="mt-5 @tab:hidden">
-          <div ref={scroller} onScroll={onScroll} onScrollEnd={onScrollEnd} className="hide-scroll -mx-5 flex snap-x snap-mandatory overflow-x-auto">
+          <div ref={scroller} onScroll={onScroll} className="hide-scroll -mx-5 flex snap-x snap-mandatory overflow-x-auto">
             {[SCREENS[n - 1], ...SCREENS, SCREENS[0]].map((s, k) => (
               <figure key={`slide-${k}`} className="w-full shrink-0 snap-center px-5">
                 <Phone src={s.src} alt={`RxPL app: ${s.title}`} className="mx-auto w-[59%] max-w-[300px]" />
@@ -275,9 +277,9 @@ export function AppShowcase() {
             ))}
           </div>
           <div className="mt-5 flex items-center justify-center gap-4">
-            <button onClick={() => toSlide(Math.max(0, slide - 1))} aria-label="Previous screen" className="grid h-10 w-10 place-items-center rounded-full border border-white/20"><Icon name="chevron" className="h-4 w-4 rotate-180" /></button>
+            <button onClick={() => toSlide(slide - 1)} aria-label="Previous screen" className="grid h-10 w-10 place-items-center rounded-full border border-white/20"><Icon name="chevron" className="h-4 w-4 rotate-180" /></button>
             <div className="flex gap-1.5">{SCREENS.map((_, k) => <span key={k} className={`h-1.5 rounded-full transition-all ${slide === k ? 'w-6 bg-pink' : 'w-1.5 bg-white/25'}`} />)}</div>
-            <button onClick={() => toSlide(Math.min(n - 1, slide + 1))} aria-label="Next screen" className="grid h-10 w-10 place-items-center rounded-full border border-white/20"><Icon name="chevron" className="h-4 w-4" /></button>
+            <button onClick={() => toSlide(slide + 1)} aria-label="Next screen" className="grid h-10 w-10 place-items-center rounded-full border border-white/20"><Icon name="chevron" className="h-4 w-4" /></button>
           </div>
         </div>
 
