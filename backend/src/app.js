@@ -47,11 +47,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const FREE_EMAIL_DOMAINS = new Set([
-  'gmail.com', 'yahoo.com', 'yahoo.co.in', 'hotmail.com',
-  'outlook.com', 'rediffmail.com', 'icloud.com',
-]);
-
 const clean = (value, max = 500) => String(value ?? '').trim().slice(0, max);
 const escapeHtml = (value) => clean(value).replace(/[&<>"']/g, (char) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -74,9 +69,6 @@ function validateRequest(body = {}) {
   if (!data.designation) errors.designation = 'Enter your designation.';
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
     errors.email = 'Enter a valid business email address.';
-  } else if (FREE_EMAIL_DOMAINS.has(data.email.split('@')[1])) {
-    errors.email = 'Please use your company email address.';
-  }
   const digits = data.mobile.replace(/[\s()-]/g, '');
   if (!/^(\+?\d{1,3})?\d{10}$/.test(digits)) {
     errors.mobile = 'Enter a valid 10-digit mobile number, with country code if needed.';
