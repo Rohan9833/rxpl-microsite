@@ -203,15 +203,14 @@ export function AppShowcase() {
   const onScroll = () => {
     const el = scroller.current; if (!el) return;
     const physical = Math.round(el.scrollLeft / el.clientWidth);
-    if (physical === 0) {
-      el.scrollTo({ left: n * el.clientWidth, behavior: 'auto' });
-      setSlide(n - 1);
-    } else if (physical === n + 1) {
-      el.scrollTo({ left: el.clientWidth, behavior: 'auto' });
-      setSlide(0);
-    } else {
-      setSlide(physical - 1);
-    }
+    setSlide(Math.max(0, Math.min(n - 1, physical - 1)));
+  };
+  const onScrollEnd = () => {
+    const el = scroller.current; if (!el) return;
+    const physical = Math.round(el.scrollLeft / el.clientWidth);
+    // Only jump after the swipe animation has finished, so the loop doesn't interrupt the gesture.
+    if (physical === 0) el.scrollTo({ left: n * el.clientWidth, behavior: 'instant' });
+    else if (physical === n + 1) el.scrollTo({ left: el.clientWidth, behavior: 'instant' });
   };
   useEffect(() => {
     const el = scroller.current;
@@ -264,7 +263,7 @@ export function AppShowcase() {
 
         {/* Compact: swipeable, full-width slides */}
         <div className="mt-5 @tab:hidden">
-          <div ref={scroller} onScroll={onScroll} className="hide-scroll -mx-5 flex snap-x snap-mandatory overflow-x-auto">
+          <div ref={scroller} onScroll={onScroll} onScrollEnd={onScrollEnd} className="hide-scroll -mx-5 flex snap-x snap-mandatory overflow-x-auto">
             {[SCREENS[n - 1], ...SCREENS, SCREENS[0]].map((s, k) => (
               <figure key={`slide-${k}`} className="w-full shrink-0 snap-center px-5">
                 <Phone src={s.src} alt={`RxPL app: ${s.title}`} className="mx-auto w-[59%] max-w-[300px]" />
