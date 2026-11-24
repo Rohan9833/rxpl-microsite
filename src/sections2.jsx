@@ -227,7 +227,7 @@ export function AppShowcase() {
     ['upload', 'Quick activity logging'], ['bell', 'Push and in-app notifications'], ['phone', 'iOS and Android apps'],
   ];
   return (
-    <section id="app" className="section relative overflow-hidden bg-night py-20 text-white @tab:py-28">
+    <section id="app" className="section relative overflow-hidden bg-night py-20 text-white @tab:py-28 @desk:overflow-visible">
       <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(50% 40% at 50% 62%, rgba(227,18,122,.28), transparent 70%), radial-gradient(40% 40% at 10% 10%, rgba(122,53,190,.3), transparent 70%)' }} />
       <div className="relative mx-auto max-w-[1240px] px-5 @tab:px-10">
         <SectionHead dark eyebrow="The RxPL app" title={<>A Premier League Experience.<br />In Every Player’s Pocket.</>}>
