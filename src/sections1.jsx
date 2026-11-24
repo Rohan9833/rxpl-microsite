@@ -93,13 +93,22 @@ export function Hero() {
             Your Field Force.<br />
             <span className="bg-gradient-to-r from-pink via-[#FF2E93] to-magenta bg-clip-text text-transparent">Your Premier League.</span>
           </h1>
+          <p className="hidden mt-5 max-w-[52ch] text-[1.05rem] leading-relaxed text-white/75 @desk:block">
+            Turn priority brand activities into cricket runs,<br className="hidden @desk:block" />
+            regional competition, and measurable field-force<br className="hidden @desk:block" />
+            engagement.
+          </p>
+          <div className="hidden mt-6 flex-row gap-3 @desk:flex">
+            <Btn onClick={() => go('demo')} icon="arrow" className="h-14 justify-center px-8 text-base">Request a Demo</Btn>
+            <Btn onClick={() => go('how')} variant="ghost" className="h-14 justify-center px-8 text-base">Explore RxPL</Btn>
+          </div>
         </div>
         <HeroVisual />
-        <div className="flex flex-row gap-3 @desk:col-span-7 @desk:row-start-3">
+        <div className="flex flex-row gap-3 @desk:col-span-7 @desk:row-start-3 @desk:hidden">
           <Btn onClick={() => go('demo')} icon="arrow" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Request a Demo</Btn>
           <Btn onClick={() => go('how')} variant="ghost" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Explore RxPL</Btn>
         </div>
-        <p className="mt-2 max-w-[44ch] text-[0.8rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-7 @desk:row-start-2">
+        <p className="mt-2 max-w-[44ch] text-[0.8rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-7 @desk:row-start-2 @desk:hidden">
           Turn priority brand activities into cricket runs, regional competition, and measurable field-force engagement.
         </p>
         <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:col-span-12 @desk:row-start-4 @desk:w-full @desk:justify-between @desk:text-[15px] @desk:gap-x-4 @desk:gap-y-3">
