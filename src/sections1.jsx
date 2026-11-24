@@ -187,15 +187,15 @@ export function HowItWorks() {
           <div className="flowline-v absolute bottom-10 left-[27px] top-10 w-[2px] opacity-40 @desk:hidden" />
           {STEPS.map((s, i) => (
             <li key={s.title} onMouseEnter={() => setActive(i)}
-              className={`relative flex gap-4 rounded-2xl border bg-white p-3 transition duration-500 @desk:flex-col @desk:p-6 ${active === i ? 'border-magenta/40 shadow-[0_24px_50px_-28px_rgba(227,18,122,.55)] @desk:-translate-y-1' : 'border-ink/10'}`}>
-              <div className={`relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-2xl transition duration-500 ${active === i ? 'bg-gradient-to-br from-royal to-magenta text-white' : 'bg-lavender text-royal'}`}>
-                <Icon name={s.icon} className="h-6 w-6" />
+              className={\`relative flex gap-2 rounded-2xl border bg-white p-2 transition duration-500 @desk:flex-col @desk:gap-3 @desk:p-4 \${active === i ? 'border-magenta/40 shadow-[0_24px_50px_-28px_rgba(227,18,122,.55)] @desk:-translate-y-1' : 'border-ink/10'\`}>
+              <div className={\`relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-xl transition duration-500 @desk:h-11 @desk:w-11 \${active === i ? 'bg-gradient-to-br from-royal to-magenta text-white' : 'bg-lavender text-royal'\`}>
+                <Icon name={s.icon} className="h-5 w-5" />
               </div>
-              <div className="flex-1">
-                <div className="font-score text-sm font-bold tracking-widest text-magenta tnum">STEP {String(i + 1).padStart(2, '0')}</div>
-                <h3 className="mt-0 text-s font-extrabold tracking-tight">{s.title}</h3>
-                <p className="mt-2 text-[12px] leading-relaxed text-muted">{s.text}</p>
-                <div className="mt-4"><StepVisual i={i} /></div>
+              <div className="flex-1 min-w-0">
+                <div className="font-score text-xs font-bold tracking-widest text-magenta tnum">STEP {String(i + 1).padStart(2, '0')}</div>
+                <h3 className="mt-0.5 text-base font-extrabold tracking-tight @desk:text-lg">{s.title}</h3>
+                <p className="mt-1 text-sm leading-snug text-muted">{s.text}</p>
+                <div className="mt-2"><StepVisual i={i} /></div>
               </div>
             </li>
           ))}
