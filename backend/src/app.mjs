@@ -60,19 +60,25 @@ function validateRequest(body = {}) {
     email: clean(body.email, 254).toLowerCase(),
     mobile: clean(body.mobile, 40),
     message: clean(body.message, 2000),
-    website: clean(body.website, 200), // Honeypot: bots often fill this field.
+    website: clean(body.website, 200),
   };
 
   const errors = {};
+
   if (!data.name) errors.name = 'Enter your full name.';
   if (!data.company) errors.company = 'Enter your company name.';
   if (!data.designation) errors.designation = 'Enter your designation.';
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
+
+  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/.test(data.email)) {
     errors.email = 'Enter a valid business email address.';
-  const digits = data.mobile.replace(/[\s()-]/g, '');
-  if (!/^(\+?\d{1,3})?\d{10}$/.test(digits)) {
+  }
+
+  const digits = data.mobile.replace(/[\\s()-]/g, '');
+
+  if (!/^(\\+?\\d{1,3})?\\d{10}$/.test(digits)) {
     errors.mobile = 'Enter a valid 10-digit mobile number, with country code if needed.';
   }
+
   return { data, errors };
 }
 
