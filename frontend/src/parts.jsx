@@ -115,7 +115,7 @@ export function Trophy({ className = '' }) {
   );
 }
 
-export function Btn({ children, onClick, variant = 'primary', className = '', type = 'button', icon }) {
+export function Btn({ children, onClick, variant = 'primary', className = '', type = 'button', icon, disabled = false }) {
   const base = 'inline-flex items-center justify-center gap-2 rounded-full font-display font-bold text-[15px] px-6 h-12 transition';
   const v = {
     primary: 'btn-primary text-white',
@@ -123,7 +123,7 @@ export function Btn({ children, onClick, variant = 'primary', className = '', ty
     light: 'border border-ink/15 text-ink hover:bg-ink/5',
   }[variant];
   return (
-    <button type={type} onClick={onClick} className={`${base} ${v} ${className}`}>
+    <button type={type} onClick={onClick} disabled={disabled} className={`${base} ${v} ${className} ${disabled ? 'cursor-not-allowed opacity-60' : ''}`}>
       {children}{icon && <Icon name={icon} className="h-4 w-4" stroke={2.2} />}
     </button>
   );
