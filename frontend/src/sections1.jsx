@@ -147,15 +147,15 @@ function HeroNotification() {
 
   useEffect(() => {
     let transitionTimer;
-    const timer = window.setInterval(() => {
+    const interval = window.setInterval(() => {
       setMoving(true);
       transitionTimer = window.setTimeout(() => {
         setActive((current) => (current + 1) % HERO_NOTIFICATION_TEXT.length);
         setMoving(false);
-      }, 650);
+      }, 680);
     }, 3200);
     return () => {
-      window.clearInterval(timer);
+      window.clearInterval(interval);
       window.clearTimeout(transitionTimer);
     };
   }, []);
@@ -192,10 +192,23 @@ function HeroNotification() {
   };
 
   const nextIndex = (active + 1) % HERO_NOTIFICATION_TEXT.length;
+  const slideTransition = "transform 680ms cubic-bezier(.22,.68,.2,1), opacity 680ms ease";
   return (
-    <div className="absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" style={{ aspectRatio: "6.5 / 1", overflow: "visible" }}>
-      {notification(active, { position: "absolute", top: 0, right: 0, transform: moving ? "translateY(-115%)" : "translateY(0)", opacity: moving ? 0 : 1, transition: moving ? "transform 650ms cubic-bezier(.22,.68,.2,1), opacity 650ms ease" : "none", zIndex: moving ? 1 : 2 })}
-      {notification(nextIndex, { position: "absolute", top: 0, right: 0, transform: moving ? "translateY(0)" : "translateY(115%)", opacity: moving ? 1 : 0, transition: moving ? "transform 650ms cubic-bezier(.22,.68,.2,1), opacity 650ms ease" : "none", zIndex: 2 })}
+    <div className="absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" style={{ aspectRatio: "6.5 / 1", overflow: "hidden" }}>
+      {notification(active, {
+        position: "absolute", top: 0, right: 0,
+        transform: moving ? "translateY(-115%)" : "translateY(0)",
+        opacity: moving ? 0 : 1,
+        transition: slideTransition,
+        zIndex: 1
+      })}
+      {notification(nextIndex, {
+        position: "absolute", top: 0, right: 0,
+        transform: moving ? "translateY(0)" : "translateY(115%)",
+        opacity: moving ? 1 : 0,
+        transition: slideTransition,
+        zIndex: 2
+      })}
     </div>
   );
 }
