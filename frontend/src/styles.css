@@ -340,7 +340,7 @@ h1, h2, h3 { text-wrap: balance; font-family: var(--font-display); }
 /* Mobile-only LED-board ticker. Desktop keeps the original static layout. */
 .ticker-window { overflow: hidden; }
 .ticker-track { width: max-content; }
-@container (max-width: 759px) {
+@container (max-width: 899px) {
   .ticker-track { animation: ticker-scroll 24s linear infinite; }
   .ticker-window:hover .ticker-track { animation-play-state: paused; }
 }
