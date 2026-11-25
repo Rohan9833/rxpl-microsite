@@ -148,19 +148,18 @@ function HeroVisual() {
 function Ticker() {
   return (
     <div className="relative shrink-0 border-y border-white/10 bg-[#0B061F]/90">
-      <div className="ticker-window mx-auto max-w-[1240px] px-3 py-4 @tab:px-10">
-        <div className="ticker-track flex w-max items-center gap-8 @desk:w-full @desk:justify-between @desk:gap-4">
+      <div className="ticker-window mx-auto max-w-[1240px] px-3 py-4 @tab:px-10 @desk:hidden">
+        <div className="ticker-track flex w-max items-center gap-8">
           <div className="ticker-set flex shrink-0 items-center gap-2">
-          <span className="eyebrow shrink-0 text-white/50">Runs on the board</span>
-          <div className="flex shrink-0 gap-2">{[1, 2, 3, 4, 6].map((n) => <RunChip key={n} n={n} size="sm" />)}</div>
-          <span className="h-5 w-px shrink-0 bg-white/15" />
-          <span className="shrink-0 text-sm font-semibold text-white/70">Prescriptions</span>
-          <span className="shrink-0 text-sm font-semibold text-white/70">POB</span>
-          <span className="shrink-0 text-sm font-semibold text-white/70">Camps</span>
-          <span className="shrink-0 text-sm font-semibold text-white/70">Doctor conversion</span>
-          <span className="hidden shrink-0 text-sm text-white/45 @desk:block">Scoring rules set by your company</span>
-        </div>
-          <div className="ticker-set flex shrink-0 items-center gap-2 @desk:hidden" aria-hidden="true">
+            <span className="eyebrow shrink-0 text-white/50">Runs on the board</span>
+            <div className="flex shrink-0 gap-2">{[1, 2, 3, 4, 6].map((n) => <RunChip key={n} n={n} size="sm" />)}</div>
+            <span className="h-5 w-px shrink-0 bg-white/15" />
+            <span className="shrink-0 text-sm font-semibold text-white/70">Prescriptions</span>
+            <span className="shrink-0 text-sm font-semibold text-white/70">POB</span>
+            <span className="shrink-0 text-sm font-semibold text-white/70">Camps</span>
+            <span className="shrink-0 text-sm font-semibold text-white/70">Doctor conversion</span>
+          </div>
+          <div className="ticker-set flex shrink-0 items-center gap-2" aria-hidden="true">
             <span className="eyebrow shrink-0 text-white/50">Runs on the board</span>
             <div className="flex shrink-0 gap-2">{[1, 2, 3, 4, 6].map((n) => <RunChip key={n} n={n} size="sm" />)}</div>
             <span className="h-5 w-px shrink-0 bg-white/15" />
@@ -170,6 +169,16 @@ function Ticker() {
             <span className="shrink-0 text-sm font-semibold text-white/70">Doctor conversion</span>
           </div>
         </div>
+      </div>
+      <div className="hide-scroll mx-auto hidden max-w-[1240px] items-center gap-2 overflow-x-auto px-3 py-4 @tab:px-10 @desk:flex @desk:justify-between @desk:gap-4">
+        <span className="eyebrow shrink-0 text-white/50">Runs on the board</span>
+        <div className="flex shrink-0 gap-2">{[1, 2, 3, 4, 6].map((n) => <RunChip key={n} n={n} size="sm" />)}</div>
+        <span className="h-5 w-px shrink-0 bg-white/15" />
+        <span className="shrink-0 text-sm font-semibold text-white/70">Prescriptions</span>
+        <span className="shrink-0 text-sm font-semibold text-white/70">POB</span>
+        <span className="shrink-0 text-sm font-semibold text-white/70">Camps</span>
+        <span className="shrink-0 text-sm font-semibold text-white/70">Doctor conversion</span>
+        <span className="hidden shrink-0 text-sm text-white/45 @desk:block">Scoring rules set by your company</span>
       </div>
     </div>
   );
