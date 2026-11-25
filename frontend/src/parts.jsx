@@ -44,7 +44,7 @@ export function SectionHead({ eyebrow, title, intro, dark = false, children }) {
   return (
     <div className="grid gap-3 @desk:grid-cols-12 @desk:items-start">
       <div className="@desk:col-span-12">
-        <div className={`eyebrow flex items-center gap-2.5 ${dark ? 'text-pink' : 'text-magenta'}`}>
+        <div className={`eyebrow flex items-center gap-2.5 ${eyebrow?.includes('RxPL') ? 'normal-case' : ''} ${dark ? 'text-pink' : 'text-magenta'}`}>
           <span className="h-px w-8 bg-current" />{eyebrow}
         </div>
         <h2 className={`h-section mt-4 @desk:max-w-[26ch] ${dark ? 'text-white' : 'text-ink'}`}>{title}</h2>
