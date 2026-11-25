@@ -9,6 +9,28 @@ import { DesignSystem } from './design.jsx';
 
 
 function Site() {
+  const [showStickyDemo, setShowStickyDemo] = useState(false);
+
+  useEffect(() => {
+    const updateStickyDemo = () => {
+      const hero = document.getElementById('top');
+      const demo = document.getElementById('demo');
+      if (!hero || !demo) return;
+
+      const heroPassed = hero.getBoundingClientRect().bottom <= 80;
+      const demoApproaching = demo.getBoundingClientRect().top <= window.innerHeight * 0.9;
+      setShowStickyDemo(heroPassed && !demoApproaching);
+    };
+
+    updateStickyDemo();
+    window.addEventListener('scroll', updateStickyDemo, { passive: true });
+    window.addEventListener('resize', updateStickyDemo);
+    return () => {
+      window.removeEventListener('scroll', updateStickyDemo);
+      window.removeEventListener('resize', updateStickyDemo);
+    };
+  }, []);
+
   return (
     <div className="site-root">
       <Nav />
@@ -16,6 +38,15 @@ function Site() {
         <Hero /><HowItWorks /><Scoring /><Tournament /><AppShowcase /><Approval /><Dashboard /><Benefits /><Demo />
       </main>
       <Footer />
+      {showStickyDemo && (
+        <button
+          type="button"
+          onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+          className="fixed bottom-[calc(env(safe-area-inset-bottom)+16px)] left-4 right-4 z-50 flex h-12 items-center justify-center gap-2 rounded-full btn-primary px-5 font-display text-sm font-bold text-white shadow-[0_12px_32px_-10px_rgba(227,18,122,.65)] @desk:left-1/2 @desk:right-auto @desk:w-[260px] @desk:-translate-x-1/2"
+        >
+          Request a Demo <span aria-hidden="true">→</span>
+        </button>
+      )}
     </div>
   );
 }
