@@ -128,6 +128,67 @@ export function Hero() {
   );
 }
 
+const HERO_NOTIFICATIONS = [
+  ["It's gone all the way! A massive six! 🎉", "Mumbai Mavericks", "6 Runs"],
+  ["Out of the park! Maximum six! 🎆", "Delhi Dynamos", "6 Runs"],
+  ["He's cleared the ropes—six! 🎉", "Chennai Challengers", "6 Runs"],
+  ["That ball disappears for six! ✨", "Jaipur Jaguars", "6 Runs"],
+  ["The crowd erupts—six! 🎊", "Bengaluru Blasters", "6 Runs"],
+  ["Timed to perfection—four runs! 🎉", "Punjab Panthers", "4 Runs"],
+  ["Placed perfectly—four runs! 🎊", "Hyderabad Hawks", "4 Runs"],
+  ["That shot races away for four! 🎊", "Kolkata Kings", "4 Runs"],
+  ["He splits the field—four! ✨", "Lucknow Lions", "4 Runs"],
+  ["Pure placement brings four! 🎉", "Gujarat Giants", "4 Runs"],
+];
+
+function HeroNotification() {
+  const [active, setActive] = useState(0);
+  const [sliding, setSliding] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setSliding(true);
+      window.setTimeout(() => {
+        setActive((current) => (current + 1) % HERO_NOTIFICATIONS.length);
+        setSliding(false);
+      }, 620);
+    }, 3200);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const [message, team, runs] = HERO_NOTIFICATIONS[active];
+
+  return (
+    <div
+      className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        height: '55px',
+        boxSizing: 'border-box',
+        padding: '5px 12px',
+        borderRadius: '28px',
+        background: 'linear-gradient(105deg, #281d49 0%, #57346b 55%, #793c68 100%)',
+        boxShadow: '0 14px 28px -12px rgba(0,0,0,.75)',
+        border: '1px solid rgba(255,255,255,.12)',
+        color: '#fff',
+        overflow: 'hidden',
+        transform: sliding ? 'translateY(-115%)' : 'translateY(0)',
+        opacity: sliding ? 0 : 1,
+        transition: 'transform 620ms cubic-bezier(.2,.75,.25,1), opacity 620ms ease',
+      }}
+    >
+      <img src="/assets/rxpl-logo.png" alt="" style={{ width: '34px', height: '34px', flexShrink: 0, objectFit: 'contain', borderRadius: '8px' }} />
+      <div style={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '2px' }}>
+        <div style={{ fontSize: '11px', lineHeight: '13px', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{message}</div>
+        <div style={{ fontSize: '10px', lineHeight: '12px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{team} · {runs}</div>
+      </div>
+      <span style={{ alignSelf: 'flex-start', marginTop: '4px', flexShrink: 0, fontSize: '9px', lineHeight: '11px', color: 'rgba(255,255,255,.7)' }}>now</span>
+    </div>
+  );
+}
+
 function HeroVisual() {
   return (
     <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-6 @desk:row-span-1 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-hidden @desk:rounded-[36px]">
@@ -139,8 +200,7 @@ function HeroVisual() {
       <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-1/2 @desk:w-[39%] @desk:max-w-[240px] @desk:-translate-x-[18%] @desk:-translate-y-[40%]">
         <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
       </div>
-      <img src="/assets/app-push-banner.png" alt="RxPL push notification: A perfect drive to the boundary! 4 Runs – Guwahati Champions"
-        className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" />
+      <HeroNotification />
     </div>
   );
 }
