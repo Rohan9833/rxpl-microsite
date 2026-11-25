@@ -318,8 +318,22 @@ const HERO_NOTIFICATION_TEXT = [
 ];
 
 function HeroNotification() {
-  const [active, setActive] = useState(0);
-  // 'idle' | 'animating' | 'done'
+  // Each entry is a stable identity: { key, headline, team, score }
+  // We keep a small queue so the outgoing and incoming copies never
+  // have their text swapped at the animation boundary.
+  const makeItem = (index) => {
+    const [headline, team, score] = HERO_NOTIFICATION_TEXT[index];
+    return { key: `${index}-${Math.random().toString(36).slice(2, 8)}`, index, headline, team, score };
+  };
+
+  const [queue, setQueue] = useState(() => {
+    const first = makeItem(0);
+    const second = makeItem(1 % HERO_NOTIFICATION_TEXT.length);
+    return [first, second]; // [outgoing, incoming]
+  });
+  // 'idle' -> both copies in resting positions, transitions off
+  // 'animating' -> outgoing slides up, incoming slides into place
+  // 'done' -> animation finished; incoming locked at center
   const [phase, setPhase] = useState('idle');
 
   useEffect(() => {
@@ -327,13 +341,17 @@ function HeroNotification() {
     let resetTimer;
     const interval = window.setInterval(() => {
       setPhase('animating');
-      // When the 700ms slide finishes, lock the incoming copy in place.
       doneTimer = window.setTimeout(() => {
-        setActive((current) => (current + 1) % HERO_NOTIFICATION_TEXT.length);
         setPhase('done');
-        // One frame later, drop back to idle with transitions OFF so the
-        // reposition from "incoming at translateY(0)" to "current at
-        // translateY(0)" is instantaneous and invisible.
+        // Advance the queue: drop outgoing, promote incoming, append a new
+        // incoming. This happens while the promoted item is already at
+        // translateY(0) — its text never changes.
+        setQueue(([_, incoming]) => {
+          const next = makeItem((incoming.index + 1) % HERO_NOTIFICATION_TEXT.length);
+          return [incoming, next];
+        });
+        // Next frame: drop back to idle with transitions off. The outgoing
+        // item is off-screen, the incoming is at rest — the snap is invisible.
         resetTimer = window.setTimeout(() => setPhase('idle'), 30);
       }, 700);
     }, 3200);
@@ -344,79 +362,64 @@ function HeroNotification() {
     };
   }, []);
 
-  const notification = (index, style = {}) => {
-    const [headline, team, score] = HERO_NOTIFICATION_TEXT[index];
-    return (
-      <div
-        aria-label={`RxPL notification: ${headline}. ${team} · ${score}`}
-        style={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '9px',
-          boxSizing: 'border-box',
-          padding: '5px 12px',
-          borderRadius: '999px',
-          background: 'linear-gradient(105deg, #281d49 0%, #57346b 55%, #793c68 100%)',
-          border: '1px solid rgba(255,255,255,.16)',
-          boxShadow: '0 14px 28px -12px rgba(0,0,0,.75)',
-          color: '#fff',
-          overflow: 'hidden',
-          ...style,
-        }}
-      >
-        <img src="/assets/favicon.png" alt="" style={{ width: '40px', height: '40px', flexShrink: 0, objectFit: 'contain', borderRadius: '9px' }} />
-        <div style={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '2px' }}>
-          <div style={{ fontSize: 'clamp(9px, 2.4vw, 13px)', lineHeight: '14px', fontWeight: 750, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{headline}</div>
-          <div style={{ fontSize: 'clamp(8px, 2.2vw, 12px)', lineHeight: '13px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{team} · {score}</div>
-        </div>
-        <span style={{ alignSelf: 'flex-start', marginTop: '5px', flexShrink: 0, fontSize: 'clamp(8px, 1.8vw, 10px)', lineHeight: '12px', color: 'rgba(255,255,255,.7)' }}>now</span>
+  const renderNotification = (item, style) => (
+    <div
+      key={item.key}
+      aria-label={`RxPL notification: ${item.headline}. ${item.team} · ${item.score}`}
+      style={{
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '9px',
+        boxSizing: 'border-box',
+        padding: '5px 12px',
+        borderRadius: '999px',
+        background: 'linear-gradient(105deg, #281d49 0%, #57346b 55%, #793c68 100%)',
+        border: '1px solid rgba(255,255,255,.16)',
+        boxShadow: '0 14px 28px -12px rgba(0,0,0,.75)',
+        color: '#fff',
+        overflow: 'hidden',
+        ...style,
+      }}
+    >
+      <img src="/assets/favicon.png" alt="" style={{ width: '40px', height: '40px', flexShrink: 0, objectFit: 'contain', borderRadius: '9px' }} />
+      <div style={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '2px' }}>
+        <div style={{ fontSize: 'clamp(9px, 2.4vw, 13px)', lineHeight: '14px', fontWeight: 750, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.headline}</div>
+        <div style={{ fontSize: 'clamp(8px, 2.2vw, 12px)', lineHeight: '13px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.team} · {item.score}</div>
       </div>
-    );
-  };
+      <span style={{ alignSelf: 'flex-start', marginTop: '5px', flexShrink: 0, fontSize: 'clamp(8px, 1.8vw, 10px)', lineHeight: '12px', color: 'rgba(255,255,255,.7)' }}>now</span>
+    </div>
+  );
 
-  const nextIndex = (active + 1) % HERO_NOTIFICATION_TEXT.length;
+  const [outgoing, incoming] = queue;
   const slideTransition = 'transform 700ms cubic-bezier(.22,.68,.2,1), opacity 700ms ease';
-  const noTransition = 'none';
 
-  // ---- Outgoing (current) copy ----
-  // idle      -> centered, visible
-  // animating -> slides up to -100%, fades out
-  // done      -> stays off-screen (still -100%), invisible
-  // (idle reset then snaps it back to center with no transition, but it's
-  //  already the NEW active content because `active` advanced — so the snap
-  //  is invisible.)
-  const outgoingStyle = {
-    transform: phase === 'idle' ? 'translateY(0)' : 'translateY(-100%)',
-    opacity: phase === 'idle' ? 1 : 0,
-    transition: phase === 'idle' ? noTransition : slideTransition,
-    zIndex: 1,
-  };
+  // Outgoing: idle at center -> animating/done off-screen. On idle reset it
+  // snaps back with transition:none, but by then it has already been replaced
+  // in the queue, so its content and position never visibly change.
+  const outgoingStyle = phase === 'idle'
+    ? { transform: 'translateY(0)', opacity: 1, transition: 'none', zIndex: 1 }
+    : { transform: 'translateY(-100%)', opacity: 0, transition: slideTransition, zIndex: 1 };
 
-  // ---- Incoming (next) copy ----
-  // idle      -> below, invisible
-  // animating -> rises to 0, fades in
-  // done      -> stays at 0, visible (this is the key — no reset to +100%)
-  // (idle reset then snaps it back to +100% with no transition, invisibly,
-  //  ready for the next cycle.)
-  const incomingStyle = {
-    transform: phase === 'idle' ? 'translateY(100%)' : 'translateY(0)',
-    opacity: phase === 'idle' ? 0 : 1,
-    transition: phase === 'idle' ? noTransition : slideTransition,
-    zIndex: 2,
-  };
+  // Incoming: idle below -> animating/done at center. The key point: the
+  // SAME element (same `key`, same text) animates to center and then simply
+  // stays there through 'done' and 'idle' — it becomes the outgoing copy
+  // next cycle, so its text is never swapped at the transition boundary.
+  const incomingStyle = phase === 'idle'
+    ? { transform: 'translateY(100%)', opacity: 0, transition: 'none', zIndex: 2 }
+    : { transform: 'translateY(0)', opacity: 1, transition: slideTransition, zIndex: 2 };
 
   return (
     <div
       className="absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]"
       style={{ aspectRatio: '6.5 / 1', overflow: 'hidden' }}
     >
-      {notification(active, outgoingStyle)}
-      {notification(nextIndex, incomingStyle)}
+      {renderNotification(outgoing, outgoingStyle)}
+      {renderNotification(incoming, incomingStyle)}
     </div>
   );
 }
