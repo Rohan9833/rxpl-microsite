@@ -395,7 +395,7 @@ function HeroNotification() {
         ...style,
       }}
     >
-      <img src="/assets/favicon.png" alt="" style={{ width: "40px", height: "40px", flexShrink: 0, objectFit: "contain", borderRadius: "0px", background: "#fff", padding: "3px", boxSizing: "border-box" }} />
+      <img src="/assets/favicon.png" alt="" style={{ width: "40px", height: "40px", flexShrink: 0, objectFit: "contain", borderRadius: "6px", background: "#fff", padding: "3px", boxSizing: "border-box" }} />
       <div style={{ minWidth: 0, flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: "2px" }}>
         <div style={{ fontSize: "clamp(9px, 2.4vw, 13px)", lineHeight: "14px", fontWeight: 750, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.headline}</div>
         <div style={{ fontSize: "clamp(8px, 2.2vw, 12px)", lineHeight: "13px", fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.team} · {item.score}</div>
