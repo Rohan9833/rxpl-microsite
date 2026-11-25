@@ -169,7 +169,7 @@ function HeroNotification() {
           src="/assets/app-push-banner.png"
           alt="RxPL cricket push notification"
           className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]"
-          style={{ width: "100%", maxWidth: "none", top: 0, right: 0 }}
+          style={{ position: "absolute", inset: 0, width: "100%", maxWidth: "none", height: "100%", top: 0, right: 0, objectFit: "fill" }}
         />
         <div style={{ position: "absolute", left: "20%", right: "13%", top: "14%", bottom: "16%", borderRadius: "6px", background: "linear-gradient(105deg, #39265b 0%, #60366f 58%, #78406a 100%)", display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", pointerEvents: "none" }}>
           <div style={{ fontSize: "clamp(8px, 2.4vw, 12px)", lineHeight: 1.15, fontWeight: 700, color: "#fff", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{headline}</div>
@@ -180,7 +180,7 @@ function HeroNotification() {
   };
 
   return (
-    <div className="absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" style={{ height: "auto", overflow: "visible" }}>
+    <div className="absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" style={{ aspectRatio: "6.5 / 1", overflow: "visible" }}>
       {notification(active, { position: "absolute", top: 0, right: 0, transform: moving ? "translateY(-115%)" : "translateY(0)", opacity: moving ? 0 : 1, transition: "transform 650ms cubic-bezier(.2,.75,.25,1), opacity 650ms ease", zIndex: moving ? 1 : 2 })}
       {notification(next, { position: "absolute", top: 0, right: 0, transform: moving ? "translateY(0)" : "translateY(115%)", opacity: moving ? 1 : 0, transition: "transform 650ms cubic-bezier(.2,.75,.25,1), opacity 650ms ease", zIndex: moving ? 2 : 1 })}
     </div>
