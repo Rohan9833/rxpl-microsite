@@ -130,7 +130,7 @@ export function Benefits() {
       <div className="mx-auto grid max-w-[1240px] gap-12 px-5 @tab:px-10 @desk:grid-cols-12">
         <div className="@desk:col-span-5">
           <div className="@desk:sticky @desk:top-28">
-            <div className="eyebrow flex items-center gap-2.5 text-magenta normal-case"><span className="h-px w-8 bg-current" />Why RxPL</div>
+            <div className="eyebrow flex items-center gap-2.5 text-magenta" style={{ textTransform: 'none' }}><span className="h-px w-8 bg-current" />Why RxPL</div>
             <h2 className="h-section mt-4">More Than a Tournament.</h2>
             <p className="mt-5 max-w-[30ch] font-display text-[1.45rem] font-bold leading-snug text-royal">A smarter way to engage your field force.</p>
             <p className="mt-5 max-w-[42ch] text-[15.5px] leading-relaxed text-muted">For Brand Managers, Marketing, Sales and BU Heads who want the field to put energy behind the right activities, and want to see it happen.</p>
