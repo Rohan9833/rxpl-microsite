@@ -351,3 +351,54 @@ h1, h2, h3 { text-wrap: balance; font-family: var(--font-display); }
 @media (prefers-reduced-motion: reduce) {
   .ticker-track { animation: none !important; }
 }
+
+/* Animated hero push notification; scoped styles preserve the surrounding hero layout. */
+.hero-notification-window { overflow: visible; }
+.hero-notification {
+  position: relative;
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #151326;
+  color: #fff;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.8);
+  border: 1px solid rgba(255,255,255,.15);
+}
+.hero-notification-content { padding: 12px 14px; }
+.hero-notification-headline {
+  font-size: clamp(10px, 2.6vw, 14px);
+  line-height: 1.25;
+  font-weight: 750;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hero-notification-subline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  color: rgba(255,255,255,.66);
+  font-size: 10px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.hero-notification-runs { color: #fff; font-weight: 700; }
+.hero-notification-exit {
+  position: absolute;
+  inset: 0;
+  animation: hero-notification-slide-up 680ms cubic-bezier(.2,.75,.25,1) both;
+}
+.hero-notification-enter { animation: hero-notification-appear 450ms ease-out both; }
+@keyframes hero-notification-slide-up {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-115%); opacity: 0; }
+}
+@keyframes hero-notification-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-notification-exit, .hero-notification-enter { animation-duration: 1ms; }
+}
