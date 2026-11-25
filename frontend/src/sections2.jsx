@@ -537,7 +537,7 @@ export function AppShowcase() {
               </figure>
             ))}
           </div>
-          <div className="mt-5 flex items-center justify-center gap-4">
+          <div className="mt-8 flex items-center justify-center gap-4 @tab:mt-5">
             <button
               onClick={() => toSlide(slide - 1)}
               aria-label="Previous screen"
