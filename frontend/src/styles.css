@@ -335,3 +335,19 @@ h1, h2, h3 { text-wrap: balance; font-family: var(--font-display); }
   .h-display { font-size: clamp(2rem, 3.7cqi, 3.5rem); }
   .h-section { font-size: clamp(1.65rem, 3.1cqi, 2.8rem); }
 }
+
+
+/* Mobile-only LED-board ticker. Desktop keeps the original static layout. */
+.ticker-window { overflow: hidden; }
+.ticker-track { width: max-content; }
+@container (max-width: 759px) {
+  .ticker-track { animation: ticker-scroll 24s linear infinite; }
+  .ticker-window:hover .ticker-track { animation-play-state: paused; }
+}
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none !important; }
+}
