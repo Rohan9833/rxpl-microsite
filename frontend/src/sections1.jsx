@@ -30,7 +30,7 @@ export function Nav() {
         </nav>
         <div className="ml-auto flex items-center gap-2 @desk:ml-2">
           <button onClick={() => jump('demo')} className="btn-primary hidden h-10 rounded-full px-4 font-display text-[13.5px] font-bold text-white @tab:px-5 @desk:inline-flex">Request a Demo</button>
-          <img src="/assets/Product%20by%20digilateral.png" alt="Product by digiLATERAL" className="h-8 w-auto max-w-[118px] object-contain @tab:h-9 @desk:hidden" />
+          <img src="/assets/Productbydigilateral.png" alt="Product by digiLATERAL" className="h-8 w-auto max-w-[118px] object-contain @tab:h-9 @desk:hidden" />
           <button onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? 'Close menu' : 'Open menu'}
             className="grid h-10 w-10 place-items-center rounded-full border border-ink/15 text-ink @desk:hidden">
             <Icon name={open ? 'close' : 'menu'} />
