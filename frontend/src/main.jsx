@@ -42,9 +42,9 @@ function Site() {
         <button
           type="button"
           onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-          className="fixed bottom-[calc(env(safe-area-inset-bottom)+16px)] left-4 right-4 z-50 flex h-12 items-center justify-center gap-2 rounded-full btn-primary px-5 font-display text-sm font-bold text-white shadow-[0_12px_32px_-10px_rgba(227,18,122,.65)] @desk:left-1/2 @desk:right-auto @desk:w-[260px] @desk:-translate-x-1/2"
+          className="fixed bottom-[calc(env(safe-area-inset-bottom)+5px)] left-4 right-4 z-50 flex h-12 items-center justify-center gap-2 rounded-full btn-primary px-5 font-display text-sm font-bold text-white shadow-[0_12px_32px_-10px_rgba(227,18,122,.65)] @desk:left-1/2 @desk:right-auto @desk:w-[260px] @desk:-translate-x-1/2"
         >
-          Request a Demo <span aria-hidden="true">→</span>
+          Request Demo
         </button>
       )}
     </div>

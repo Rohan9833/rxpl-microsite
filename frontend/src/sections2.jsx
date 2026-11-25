@@ -308,58 +308,59 @@ function Bracket() {
 export function Tournament() {
   const [mode, setMode] = useState("league");
   return (
-    <section
-      id="tournament"
-      className="section bg-lavender py-20 text-ink @tab:py-28"
-    >
-      <div className="mx-auto max-w-[1240px] px-5 py-2 @tab:px-10">
-        <SectionHead
-          eyebrow="Teams & tournaments"
-          title={
-            <>
-              Your Regions.
-              <br />
-              Your Teams.
-              <br />
-              Your Tournament.
-            </>
-          }
-          intro="Group players into regional or zonal teams with their own cricket-style names, then run a league or a knockout."
-        />
-        <div className="mt-10 flex flex-col gap-5 @desk:flex-row @desk:items-center @desk:justify-between">
-          <Segmented
-            value={mode}
-            onChange={setMode}
-            options={[
-              ["league", "League format", "list"],
-              ["knockout", "Knockout format", "trophy"],
-            ]}
-          />
-        </div>
-        <div className="mt-8" key={mode}>
-          <div className="rise">
-            {mode === "league" ? <LeagueTable /> : <Bracket />}
-          </div>
-        </div>
-        <ul className="mt-6 grid grid-cols-1 gap-x-6 gap-y-2 text-[13.5px] font-semibold text-ink/75 @tab:flex @tab:flex-wrap">
-          {[
-            "Custom team names",
-            "Regional & zonal competition",
-            "Knockout or league",
-            "Rankings & match schedules",
-          ].map((x) => (
-            <li key={x} className="flex items-center gap-2">
-              <Icon
-                name="check"
-                className="h-4 w-4 shrink-0 text-magenta"
-                stroke={2.4}
-              />
-              {x}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    // <section
+    //   id="tournament"
+    //   className="section bg-lavender py-20 text-ink @tab:py-28"
+    // >
+    //   {/* <div className="mx-auto max-w-[1240px] px-5 py-2 @tab:px-10">
+    //     <SectionHead
+    //       eyebrow="Teams & tournaments"
+    //       title={
+    //         <>
+    //           Your Regions.
+    //           <br />
+    //           Your Teams.
+    //           <br />
+    //           Your Tournament.
+    //         </>
+    //       }
+    //       intro="Group players into regional or zonal teams with their own cricket-style names, then run a league or a knockout."
+    //     />
+    //     <div className="mt-10 flex flex-col gap-5 @desk:flex-row @desk:items-center @desk:justify-between">
+    //       <Segmented
+    //         value={mode}
+    //         onChange={setMode}
+    //         options={[
+    //           ["league", "League format", "list"],
+    //           ["knockout", "Knockout format", "trophy"],
+    //         ]}
+    //       />
+    //     </div>
+    //     <div className="mt-8" key={mode}>
+    //       <div className="rise">
+    //         {mode === "league" ? <LeagueTable /> : <Bracket />}
+    //       </div>
+    //     </div>
+    //     <ul className="mt-6 grid grid-cols-1 gap-x-6 gap-y-2 text-[13.5px] font-semibold text-ink/75 @tab:flex @tab:flex-wrap">
+    //       {[
+    //         "Custom team names",
+    //         "Regional & zonal competition",
+    //         "Knockout or league",
+    //         "Rankings & match schedules",
+    //       ].map((x) => (
+    //         <li key={x} className="flex items-center gap-2">
+    //           <Icon
+    //             name="check"
+    //             className="h-4 w-4 shrink-0 text-magenta"
+    //             stroke={2.4}
+    //           />
+    //           {x}
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   </div> */}
+    // </section>
+    <></>
   );
 }
 
@@ -629,148 +630,149 @@ export function Approval() {
     ],
   ];
   return (
-    <section
-      id="approval"
-      className="section bg-white py-20 text-ink @tab:py-28"
-    >
-      <div className="mx-auto max-w-[1240px] px-5 @tab:px-10">
-        <SectionHead
-          eyebrow="Manager approval"
-          title={
-            <>
-              Every Activity Reviewed.
-              <br />
-              Every Run Accountable.
-            </>
-          }
-          intro="MRs submit. Managers review, then approve or reject. One clear review step puts a manager’s decision behind every entry."
-        />
-        <ol className="mt-10 grid gap-3 @tab:grid-cols-3">
-          {stages.map(([ic, t, d], i) => (
-            <li
-              key={t}
-              className="flex items-start gap-4 rounded-2xl bg-mist p-5 ring-1 ring-ink/[.06]"
-            >
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-royal to-magenta text-white">
-                <Icon name={ic} />
-              </span>
-              <div>
-                <div className="font-score text-[13px] font-bold tracking-widest text-magenta">
-                  0{i + 1}
-                </div>
-                <div className="font-display font-extrabold">{t}</div>
-                <div className="mt-1 text-[14px] text-muted">{d}</div>
-              </div>
-            </li>
-          ))}
-        </ol>
+    // <section
+    //   id="approval"
+    //   className="section bg-white py-20 text-ink @tab:py-28"
+    // >
+    //   <div className="mx-auto max-w-[1240px] px-5 @tab:px-10">
+    //     <SectionHead
+    //       eyebrow="Manager approval"
+    //       title={
+    //         <>
+    //           Every Activity Reviewed.
+    //           <br />
+    //           Every Run Accountable.
+    //         </>
+    //       }
+    //       intro="MRs submit. Managers review, then approve or reject. One clear review step puts a manager’s decision behind every entry."
+    //     />
+    //     <ol className="mt-10 grid gap-3 @tab:grid-cols-3">
+    //       {stages.map(([ic, t, d], i) => (
+    //         <li
+    //           key={t}
+    //           className="flex items-start gap-4 rounded-2xl bg-mist p-5 ring-1 ring-ink/[.06]"
+    //         >
+    //           <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-royal to-magenta text-white">
+    //             <Icon name={ic} />
+    //           </span>
+    //           <div>
+    //             <div className="font-score text-[13px] font-bold tracking-widest text-magenta">
+    //               0{i + 1}
+    //             </div>
+    //             <div className="font-display font-extrabold">{t}</div>
+    //             <div className="mt-1 text-[14px] text-muted">{d}</div>
+    //           </div>
+    //         </li>
+    //       ))}
+    //     </ol>
 
-        <div className="mx-auto mt-10 max-w-[880px]">
-          <div>
-            <div className="overflow-hidden rounded-3xl bg-night text-white shadow-[0_40px_80px_-40px_rgba(28,13,61,.9)]">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-5 py-4">
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-[.2em] text-white/50">
-                    Step 2 · Manager review
-                  </div>
-                  <div className="font-display text-lg font-extrabold">
-                    Pending submissions
-                  </div>
-                </div>
-                <IllustrativeBadge>
-                  Illustrative concept, not a product screen
-                </IllustrativeBadge>
-              </div>
-              <ul className="divide-y divide-white/10">
-                {QUEUE.map((q) => {
-                  const s = status[q.id];
-                  return (
-                    <li
-                      key={q.id}
-                      className="flex flex-col gap-4 px-5 py-4 @tab:flex-row @tab:items-center"
-                    >
-                      <div className="flex flex-1 items-center gap-4">
-                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-to-br from-violet to-magenta font-display font-extrabold">
-                          {q.mr
-                            .split(" ")
-                            .map((w) => w[0])
-                            .join("")}
-                        </span>
-                        <div className="min-w-0">
-                          <div className="font-bold">
-                            {q.mr}{" "}
-                            <span className="font-semibold text-white/45">
-                              · {q.team}
-                            </span>
-                          </div>
-                          <div className="text-[14px] text-white/75">
-                            {q.act}
-                          </div>
-                          <div className="flex items-center gap-2 text-[12px] text-white/45">
-                            <span>{q.doc}</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        {s ? (
-                          <span
-                            className={`pop inline-flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-bold ${s === "ok" ? "bg-emerald-400/15 text-emerald-300" : "bg-rose-400/15 text-rose-300"}`}
-                          >
-                            <Icon
-                              name={s === "ok" ? "checkCircle" : "xCircle"}
-                              className="h-4 w-4"
-                            />
-                            {s === "ok" ? "Approved" : "Rejected"}
-                            <button
-                              onClick={() => set(q.id, undefined)}
-                              className="ml-1 text-white/50 underline-offset-2 hover:underline"
-                            >
-                              Undo
-                            </button>
-                          </span>
-                        ) : (
-                          <>
-                            <button
-                              onClick={() => set(q.id, "no")}
-                              className="h-10 rounded-full border border-white/20 px-4 text-[13px] font-bold text-white/80 hover:bg-white/10"
-                            >
-                              Reject
-                            </button>
-                            <button
-                              onClick={() => set(q.id, "ok")}
-                              className="h-10 rounded-full bg-white px-4 text-[13px] font-bold text-ink hover:bg-lavender"
-                            >
-                              Approve
-                            </button>
-                          </>
-                        )}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 bg-white/[.03] px-5 py-3 text-[13px]">
-                <span className="font-bold text-white/50">
-                  Step 3 · Outcome
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                  Approved <b className="tnum">{approved}</b>
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-rose-400" />
-                  Rejected <b className="tnum">{rejected}</b>
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-white/40" />
-                  Pending{" "}
-                  <b className="tnum">{QUEUE.length - approved - rejected}</b>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    //     <div className="mx-auto mt-10 max-w-[880px]">
+    //       <div>
+    //         <div className="overflow-hidden rounded-3xl bg-night text-white shadow-[0_40px_80px_-40px_rgba(28,13,61,.9)]">
+    //           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-5 py-4">
+    //             <div>
+    //               <div className="text-[11px] font-bold uppercase tracking-[.2em] text-white/50">
+    //                 Step 2 · Manager review
+    //               </div>
+    //               <div className="font-display text-lg font-extrabold">
+    //                 Pending submissions
+    //               </div>
+    //             </div>
+    //             <IllustrativeBadge>
+    //               Illustrative concept, not a product screen
+    //             </IllustrativeBadge>
+    //           </div>
+    //           <ul className="divide-y divide-white/10">
+    //             {QUEUE.map((q) => {
+    //               const s = status[q.id];
+    //               return (
+    //                 <li
+    //                   key={q.id}
+    //                   className="flex flex-col gap-4 px-5 py-4 @tab:flex-row @tab:items-center"
+    //                 >
+    //                   <div className="flex flex-1 items-center gap-4">
+    //                     <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-to-br from-violet to-magenta font-display font-extrabold">
+    //                       {q.mr
+    //                         .split(" ")
+    //                         .map((w) => w[0])
+    //                         .join("")}
+    //                     </span>
+    //                     <div className="min-w-0">
+    //                       <div className="font-bold">
+    //                         {q.mr}{" "}
+    //                         <span className="font-semibold text-white/45">
+    //                           · {q.team}
+    //                         </span>
+    //                       </div>
+    //                       <div className="text-[14px] text-white/75">
+    //                         {q.act}
+    //                       </div>
+    //                       <div className="flex items-center gap-2 text-[12px] text-white/45">
+    //                         <span>{q.doc}</span>
+    //                       </div>
+    //                     </div>
+    //                   </div>
+    //                   <div className="flex items-center gap-2">
+    //                     {s ? (
+    //                       <span
+    //                         className={`pop inline-flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-bold ${s === "ok" ? "bg-emerald-400/15 text-emerald-300" : "bg-rose-400/15 text-rose-300"}`}
+    //                       >
+    //                         <Icon
+    //                           name={s === "ok" ? "checkCircle" : "xCircle"}
+    //                           className="h-4 w-4"
+    //                         />
+    //                         {s === "ok" ? "Approved" : "Rejected"}
+    //                         <button
+    //                           onClick={() => set(q.id, undefined)}
+    //                           className="ml-1 text-white/50 underline-offset-2 hover:underline"
+    //                         >
+    //                           Undo
+    //                         </button>
+    //                       </span>
+    //                     ) : (
+    //                       <>
+    //                         <button
+    //                           onClick={() => set(q.id, "no")}
+    //                           className="h-10 rounded-full border border-white/20 px-4 text-[13px] font-bold text-white/80 hover:bg-white/10"
+    //                         >
+    //                           Reject
+    //                         </button>
+    //                         <button
+    //                           onClick={() => set(q.id, "ok")}
+    //                           className="h-10 rounded-full bg-white px-4 text-[13px] font-bold text-ink hover:bg-lavender"
+    //                         >
+    //                           Approve
+    //                         </button>
+    //                       </>
+    //                     )}
+    //                   </div>
+    //                 </li>
+    //               );
+    //             })}
+    //           </ul>
+    //           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 bg-white/[.03] px-5 py-3 text-[13px]">
+    //             <span className="font-bold text-white/50">
+    //               Step 3 · Outcome
+    //             </span>
+    //             <span className="flex items-center gap-2">
+    //               <span className="h-2 w-2 rounded-full bg-emerald-400" />
+    //               Approved <b className="tnum">{approved}</b>
+    //             </span>
+    //             <span className="flex items-center gap-2">
+    //               <span className="h-2 w-2 rounded-full bg-rose-400" />
+    //               Rejected <b className="tnum">{rejected}</b>
+    //             </span>
+    //             <span className="flex items-center gap-2">
+    //               <span className="h-2 w-2 rounded-full bg-white/40" />
+    //               Pending{" "}
+    //               <b className="tnum">{QUEUE.length - approved - rejected}</b>
+    //             </span>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </section>
+    <></>
   );
 }
