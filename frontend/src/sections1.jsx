@@ -144,18 +144,20 @@ const HERO_NOTIFICATION_TEXT = [
 function HeroNotification() {
   const [active, setActive] = useState(0);
   const [moving, setMoving] = useState(false);
-  const [next, setNext] = useState(1);
 
   useEffect(() => {
+    let transitionTimer;
     const timer = window.setInterval(() => {
-      setNext((current) => (current + 1) % HERO_NOTIFICATION_TEXT.length);
       setMoving(true);
-      window.setTimeout(() => {
+      transitionTimer = window.setTimeout(() => {
         setActive((current) => (current + 1) % HERO_NOTIFICATION_TEXT.length);
         setMoving(false);
       }, 650);
     }, 3200);
-    return () => window.clearInterval(timer);
+    return () => {
+      window.clearInterval(timer);
+      window.clearTimeout(transitionTimer);
+    };
   }, []);
 
   const notification = (index, style = {}) => {
@@ -178,7 +180,7 @@ function HeroNotification() {
             color: "#fff", overflow: "hidden"
           }}
         >
-          <img src="/assets/rxpl-logo.png" alt="" style={{ width: "40px", height: "40px", flexShrink: 0, objectFit: "contain", borderRadius: "9px" }} />
+          <img src="/assets/favicon.png" alt="" style={{ width: "40px", height: "40px", flexShrink: 0, objectFit: "contain", borderRadius: "9px" }} />
           <div style={{ minWidth: 0, flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: "2px" }}>
             <div style={{ fontSize: "clamp(9px, 2.4vw, 13px)", lineHeight: "14px", fontWeight: 750, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{headline}</div>
             <div style={{ fontSize: "clamp(8px, 2.2vw, 12px)", lineHeight: "13px", fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{team} · {score}</div>
@@ -189,10 +191,12 @@ function HeroNotification() {
     );
   };
 
+  const nextIndex = (active + 1) % HERO_NOTIFICATION_TEXT.length;
   return (
     <div className="absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" style={{ aspectRatio: "6.5 / 1", overflow: "visible" }}>
-      {notification(active, { position: "absolute", top: 0, right: 0, transform: moving ? "translateY(-115%)" : "translateY(0)", opacity: moving ? 0 : 1, transition: "transform 650ms cubic-bezier(.2,.75,.25,1), opacity 650ms ease", zIndex: moving ? 1 : 2 })}
-      {notification(next, { position: "absolute", top: 0, right: 0, transform: moving ? "translateY(0)" : "translateY(115%)", opacity: moving ? 1 : 0, transition: "transform 650ms cubic-bezier(.2,.75,.25,1), opacity 650ms ease", zIndex: moving ? 2 : 1 })}
+      {!moving && notification(active, { position: "absolute", top: 0, right: 0, transform: "translateY(0)", opacity: 1, zIndex: 2 })}
+      {moving && notification(active, { position: "absolute", top: 0, right: 0, transform: "translateY(-115%)", opacity: 0, transition: "transform 650ms cubic-bezier(.22,.68,.2,1), opacity 650ms ease", zIndex: 1 })}
+      {moving && notification(nextIndex, { position: "absolute", top: 0, right: 0, transform: "translateY(0)", opacity: 1, transition: "transform 650ms cubic-bezier(.22,.68,.2,1), opacity 650ms ease", zIndex: 2 })}
     </div>
   );
 }
