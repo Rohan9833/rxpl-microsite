@@ -386,7 +386,7 @@ function HeroNotification() {
         gap: "9px",
         boxSizing: "border-box",
         padding: "5px 12px",
-        borderRadius: "999px",
+        borderRadius: "18px",
         background: "linear-gradient(105deg, #281d49 0%, #57346b 55%, #793c68 100%)",
         border: "1px solid rgba(255,255,255,.16)",
         boxShadow: "0 14px 28px -12px rgba(0,0,0,.75)",
@@ -395,7 +395,7 @@ function HeroNotification() {
         ...style,
       }}
     >
-      <img src="/assets/favicon.png" alt="" style={{ width: "40px", height: "40px", flexShrink: 0, objectFit: "contain", borderRadius: "9px" }} />
+      <img src="/assets/favicon.png" alt="" style={{ width: "40px", height: "40px", flexShrink: 0, objectFit: "contain", borderRadius: "0px", background: "#fff", padding: "3px", boxSizing: "border-box" }} />
       <div style={{ minWidth: 0, flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: "2px" }}>
         <div style={{ fontSize: "clamp(9px, 2.4vw, 13px)", lineHeight: "14px", fontWeight: 750, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.headline}</div>
         <div style={{ fontSize: "clamp(8px, 2.2vw, 12px)", lineHeight: "13px", fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.team} · {item.score}</div>
