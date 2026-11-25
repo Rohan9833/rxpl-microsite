@@ -168,7 +168,7 @@ function HeroNotification() {
         <img
           src="/assets/app-push-banner.png"
           alt="RxPL cricket push notification"
-          className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]"
+          className="absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]"
           style={{ position: "absolute", inset: 0, width: "100%", maxWidth: "none", height: "100%", top: 0, right: 0, objectFit: "fill" }}
         />
         <div style={{ position: "absolute", left: "20%", right: "13%", top: "14%", bottom: "16%", borderRadius: "6px", background: "linear-gradient(105deg, #39265b 0%, #60366f 58%, #78406a 100%)", display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", pointerEvents: "none" }}>
