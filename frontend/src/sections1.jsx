@@ -165,15 +165,25 @@ function HeroNotification() {
         className="absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]"
         style={{ ...style, width: "100%", maxWidth: "none", height: "100%", top: 0, right: 0 }}
       >
-        <img
-          src="/assets/app-push-banner.png"
-          alt="RxPL cricket push notification"
-          className="absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]"
-          style={{ position: "absolute", inset: 0, width: "100%", maxWidth: "none", height: "100%", top: 0, right: 0, objectFit: "fill" }}
-        />
-        <div style={{ position: "absolute", left: "20%", right: "13%", top: "14%", bottom: "16%", borderRadius: "6px", background: "linear-gradient(105deg, #39265b 0%, #60366f 58%, #78406a 100%)", display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", pointerEvents: "none" }}>
-          <div style={{ fontSize: "clamp(8px, 2.4vw, 12px)", lineHeight: 1.15, fontWeight: 700, color: "#fff", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{headline}</div>
-          <div style={{ fontSize: "clamp(8px, 2.2vw, 11px)", lineHeight: 1.15, fontWeight: 600, color: "#fff", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{team} · {score}</div>
+        <div
+          aria-label={`RxPL notification: ${headline}. ${team} · ${score}`}
+          style={{
+            position: "absolute", inset: 0, width: "100%", height: "100%",
+            display: "flex", alignItems: "center", gap: "9px",
+            boxSizing: "border-box", padding: "5px 12px",
+            borderRadius: "999px",
+            background: "linear-gradient(105deg, #281d49 0%, #57346b 55%, #793c68 100%)",
+            border: "1px solid rgba(255,255,255,.16)",
+            boxShadow: "0 14px 28px -12px rgba(0,0,0,.75)",
+            color: "#fff", overflow: "hidden"
+          }}
+        >
+          <img src="/assets/rxpl-logo.png" alt="" style={{ width: "40px", height: "40px", flexShrink: 0, objectFit: "contain", borderRadius: "9px" }} />
+          <div style={{ minWidth: 0, flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: "2px" }}>
+            <div style={{ fontSize: "clamp(9px, 2.4vw, 13px)", lineHeight: "14px", fontWeight: 750, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{headline}</div>
+            <div style={{ fontSize: "clamp(8px, 2.2vw, 12px)", lineHeight: "13px", fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{team} · {score}</div>
+          </div>
+          <span style={{ alignSelf: "flex-start", marginTop: "5px", flexShrink: 0, fontSize: "clamp(8px, 1.8vw, 10px)", lineHeight: "12px", color: "rgba(255,255,255,.7)" }}>now</span>
         </div>
       </div>
     );
