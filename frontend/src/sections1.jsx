@@ -128,56 +128,7 @@ export function Hero() {
   );
 }
 
-const NOTIFICATIONS = [
-  { title: 'Boundary bonus!', message: 'A perfect drive to the boundary. 4 runs added to your score.', tag: '+4 RUNS', color: '#F6CD20' },
-  { title: 'Match day is live', message: 'Guwahati Champions vs Shillong Strikers. Your team needs you!', tag: 'MATCH LIVE', color: '#FF4DA8' },
-  { title: 'Activity approved', message: 'Your Brand A prescription activity has been approved by your manager.', tag: 'APPROVED', color: '#35C78A' },
-  { title: 'You moved up!', message: 'You climbed 3 places on the regional leaderboard. Keep going!', tag: 'RANK UP ↑3', color: '#F6CD20' },
-  { title: 'Six on the board!', message: 'Your activity earned 6 runs. That’s a massive hit for your team!', tag: '+6 RUNS', color: '#FF4DA8' },
-  { title: 'Team milestone', message: 'Your zone crossed 500 runs this week. Everyone is making an impact.', tag: '500 RUNS', color: '#35C78A' },
-  { title: 'New challenge', message: 'Complete your priority activity today and help your team take the lead.', tag: 'CHALLENGE', color: '#9B7CFF' },
-  { title: 'Player of the day', message: 'You’re leading today’s scorecard. Keep your winning streak alive!', tag: 'TOP PLAYER', color: '#F6CD20' },
-  { title: 'A new innings begins', message: 'Your next match is scheduled. Get ready to represent your region.', tag: 'UP NEXT', color: '#FF4DA8' },
-  { title: 'Leaderboard update', message: 'Your team is now in 2nd place. Just 12 runs to reach the top!', tag: 'RANK #2', color: '#9B7CFF' },
-];
-
-function NotificationCard({ notification, className = '' }) {
-  return (
-    <div className={`notification-card rounded-[18px] border border-white/15 bg-[#17102D]/95 p-3.5 text-white shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/10 backdrop-blur-xl ${className}`}>
-      <div className="flex items-start gap-3">
-        <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-magenta to-violet font-display text-xs font-extrabold shadow-lg">RxPL</div>
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center justify-between gap-2">
-            <span className="text-[11px] font-bold tracking-wide text-white/65">RxPL · Match Center</span>
-            <span className="shrink-0 text-[10px] text-white/45">now</span>
-          </div>
-          <p className="mt-1 text-[13px] font-extrabold leading-tight">{notification.title}</p>
-          <p className="mt-1 text-[11px] leading-[1.45] text-white/70">{notification.message}</p>
-          <span className="mt-2 inline-flex rounded-full px-2 py-1 text-[9px] font-extrabold tracking-wider text-[#130B2B]" style={{ backgroundColor: notification.color }}>{notification.tag}</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function HeroVisual() {
-  const [active, setActive] = useState(0);
-  const [previous, setPrevious] = useState(null);
-  const [transitioning, setTransitioning] = useState(false);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActive((current) => {
-        const next = (current + 1) % NOTIFICATIONS.length;
-        setPrevious(current);
-        setTransitioning(true);
-        window.setTimeout(() => setTransitioning(false), 700);
-        return next;
-      });
-    }, 3200);
-    return () => window.clearInterval(timer);
-  }, []);
-
   return (
     <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-6 @desk:row-span-1 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-hidden @desk:rounded-[36px]">
       <div className="pointer-events-none absolute inset-x-[8%] top-[8%] hidden h-[78%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(132,70,220,0.35),rgba(227,18,122,0.10)_45%,transparent_72%)] @desk:block" />
@@ -188,12 +139,8 @@ function HeroVisual() {
       <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-1/2 @desk:w-[39%] @desk:max-w-[240px] @desk:-translate-x-[18%] @desk:-translate-y-[40%]">
         <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
       </div>
-      <div className="notification-window absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" aria-live="polite">
-        {previous !== null && transitioning && (
-          <NotificationCard notification={NOTIFICATIONS[previous]} className="notification-exit" />
-        )}
-        <NotificationCard notification={NOTIFICATIONS[active]} className={transitioning ? "notification-enter" : ""} />
-      </div>
+      <img src="/assets/app-push-banner.png" alt="RxPL push notification: A perfect drive to the boundary! 4 Runs – Guwahati Champions"
+        className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" />
     </div>
   );
 }
