@@ -128,60 +128,6 @@ export function Hero() {
   );
 }
 
-const HERO_NOTIFICATIONS = [
-  ["It's gone all the way! A massive six! 🎉", "Mumbai Mavericks", "6 Runs"],
-  ["Out of the park! Maximum six! 🎆", "Delhi Dynamos", "6 Runs"],
-  ["He's cleared the ropes—six! 🎉", "Chennai Challengers", "6 Runs"],
-  ["That ball disappears for six! ✨", "Jaipur Jaguars", "6 Runs"],
-  ["The crowd erupts—six! 🎊", "Bengaluru Blasters", "6 Runs"],
-  ["Timed to perfection—four runs! 🎉", "Punjab Panthers", "4 Runs"],
-  ["Placed perfectly—four runs! 🎊", "Hyderabad Hawks", "4 Runs"],
-  ["That shot races away for four! 🎊", "Kolkata Kings", "4 Runs"],
-  ["He splits the field—four! ✨", "Lucknow Lions", "4 Runs"],
-  ["Pure placement brings four! 🎉", "Gujarat Giants", "4 Runs"],
-];
-
-function HeroNotification() {
-  const [active, setActive] = useState(0);
-  const [previous, setPrevious] = useState(null);
-  const [transitioning, setTransitioning] = useState(false);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setPrevious(active);
-      setActive((current) => (current + 1) % HERO_NOTIFICATIONS.length);
-      setTransitioning(true);
-    }, 3200);
-    const reset = window.setTimeout(() => setTransitioning(false), 700);
-    return () => {
-      window.clearInterval(interval);
-      window.clearTimeout(reset);
-    };
-  }, [active, transitioning]);
-
-  const renderMessage = (message, team, runs) => (
-    <div className="hero-notification-content">
-      <div className="hero-notification-headline">{message}</div>
-      <div className="hero-notification-subline">
-        <span>{team}</span><span className="hero-notification-runs">{runs}</span>
-      </div>
-    </div>
-  );
-
-  return (
-    <div className="hero-notification-window float absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]">
-      {previous !== null && transitioning && (
-        <div className="hero-notification hero-notification-exit" aria-hidden="true">
-          {renderMessage(...HERO_NOTIFICATIONS[previous])}
-        </div>
-      )}
-      <div className={`hero-notification ${transitioning ? 'hero-notification-enter' : ''}`} key={active} aria-live="polite">
-        {renderMessage(...HERO_NOTIFICATIONS[active])}
-      </div>
-    </div>
-  );
-}
-
 function HeroVisual() {
   return (
     <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-6 @desk:row-span-1 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-hidden @desk:rounded-[36px]">
@@ -193,7 +139,8 @@ function HeroVisual() {
       <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-1/2 @desk:w-[39%] @desk:max-w-[240px] @desk:-translate-x-[18%] @desk:-translate-y-[40%]">
         <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
       </div>
-      <HeroNotification />
+      <img src="/assets/app-push-banner.png" alt="RxPL push notification: A perfect drive to the boundary! 4 Runs – Guwahati Champions"
+        className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" />
     </div>
   );
 }
