@@ -162,8 +162,8 @@ function HeroNotification() {
     const [headline, team, score] = HERO_NOTIFICATION_TEXT[index];
     return (
       <div
-        className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]"
-        style={style}
+        className="absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]"
+        style={{ ...style, width: "100%", maxWidth: "none", height: "100%", top: 0, right: 0 }}
       >
         <img
           src="/assets/app-push-banner.png"
