@@ -29,7 +29,8 @@ export function Nav() {
           ))}
         </nav>
         <div className="ml-auto flex items-center gap-2 @desk:ml-2">
-          <button onClick={() => jump('demo')} className="btn-primary h-10 rounded-full px-4 font-display text-[13.5px] font-bold text-white @tab:px-5">Request a Demo</button>
+          <button onClick={() => jump('demo')} className="btn-primary hidden h-10 rounded-full px-4 font-display text-[13.5px] font-bold text-white @tab:px-5 @desk:inline-flex">Request a Demo</button>
+          <img src="/assets/Product%20by%20digilateral.png" alt="Product by digiLATERAL" className="h-8 w-auto max-w-[118px] object-contain @tab:h-9 @desk:hidden" />
           <button onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? 'Close menu' : 'Open menu'}
             className="grid h-10 w-10 place-items-center rounded-full border border-ink/15 text-ink @desk:hidden">
             <Icon name={open ? 'close' : 'menu'} />
@@ -147,15 +148,28 @@ function HeroVisual() {
 function Ticker() {
   return (
     <div className="relative shrink-0 border-y border-white/10 bg-[#0B061F]/90">
-      <div className="hide-scroll mx-auto flex max-w-[1240px] items-center gap-2 overflow-x-auto px-3 py-4 @tab:px-10 @desk:justify-between @desk:gap-4">
-        <span className="eyebrow shrink-0 text-white/50">Runs on the board</span>
-        <div className="flex shrink-0 gap-2">{[1, 2, 3, 4, 6].map((n) => <RunChip key={n} n={n} size="sm" />)}</div>
-        <span className="h-5 w-px shrink-0 bg-white/15" />
-        <span className="shrink-0 text-sm font-semibold text-white/70">Prescriptions</span>
-        <span className="shrink-0 text-sm font-semibold text-white/70">POB</span>
-        <span className="shrink-0 text-sm font-semibold text-white/70">Camps</span>
-        <span className="shrink-0 text-sm font-semibold text-white/70">Doctor conversion</span>
-        <span className="hidden shrink-0 text-sm text-white/45 @desk:block">Scoring rules set by your company</span>
+      <div className="ticker-window mx-auto max-w-[1240px] px-3 py-4 @tab:px-10">
+        <div className="ticker-track flex w-max items-center gap-8 @desk:w-full @desk:justify-between @desk:gap-4">
+          <div className="ticker-set flex shrink-0 items-center gap-2">
+          <span className="eyebrow shrink-0 text-white/50">Runs on the board</span>
+          <div className="flex shrink-0 gap-2">{[1, 2, 3, 4, 6].map((n) => <RunChip key={n} n={n} size="sm" />)}</div>
+          <span className="h-5 w-px shrink-0 bg-white/15" />
+          <span className="shrink-0 text-sm font-semibold text-white/70">Prescriptions</span>
+          <span className="shrink-0 text-sm font-semibold text-white/70">POB</span>
+          <span className="shrink-0 text-sm font-semibold text-white/70">Camps</span>
+          <span className="shrink-0 text-sm font-semibold text-white/70">Doctor conversion</span>
+          <span className="hidden shrink-0 text-sm text-white/45 @desk:block">Scoring rules set by your company</span>
+        </div>
+          <div className="ticker-set flex shrink-0 items-center gap-2 @desk:hidden" aria-hidden="true">
+            <span className="eyebrow shrink-0 text-white/50">Runs on the board</span>
+            <div className="flex shrink-0 gap-2">{[1, 2, 3, 4, 6].map((n) => <RunChip key={n} n={n} size="sm" />)}</div>
+            <span className="h-5 w-px shrink-0 bg-white/15" />
+            <span className="shrink-0 text-sm font-semibold text-white/70">Prescriptions</span>
+            <span className="shrink-0 text-sm font-semibold text-white/70">POB</span>
+            <span className="shrink-0 text-sm font-semibold text-white/70">Camps</span>
+            <span className="shrink-0 text-sm font-semibold text-white/70">Doctor conversion</span>
+          </div>
+        </div>
       </div>
     </div>
   );
