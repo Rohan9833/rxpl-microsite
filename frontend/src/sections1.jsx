@@ -110,7 +110,7 @@ export function Hero() {
           </div>
         </div>
         <HeroVisual />
-        <div className="flex flex-row gap-3 @desk:col-span-6 @desk:row-start-3 @desk:hidden">
+        <div className="flex flex-row gap-3 mt-7 @desk:col-span-6 @desk:row-start-3 @desk:hidden">
           <Btn onClick={() => go('demo')} icon="arrow" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Request a Demo</Btn>
           <Btn onClick={() => go('how')} variant="ghost" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Explore RxPL</Btn>
         </div>
