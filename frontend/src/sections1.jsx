@@ -111,7 +111,7 @@ export function Hero() {
         </div>
         <HeroVisual />
         <div className="flex flex-row gap-3 mt-7 @desk:col-span-6 @desk:row-start-3 @desk:hidden">
-          <Btn onClick={() => go('demo')}  className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Request Demo</Btn>
+          <Btn onClick={() => go('demo')} icon="arrow" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Request a Demo</Btn>
           <Btn onClick={() => go('how')} variant="ghost" className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base">Explore RxPL</Btn>
         </div>
         <p className="mt-2 max-w-[44ch] text-[0.8rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-6 @desk:row-start-2 @desk:hidden">
@@ -128,47 +128,6 @@ export function Hero() {
   );
 }
 
-const NOTIFICATION_MESSAGES = [
-  "It's gone all the way! A massive six! 🎉",
-  "Out of the park! Maximum six! 🎆",
-  "He's cleared the ropes—six! 🎉",
-  "That ball disappears for six! ✨",
-  "The crowd erupts—six! 🎊",
-  "Timed to perfection—four runs! 🎉",
-  "Placed perfectly—four runs! 🎊",
-  "That shot races away for four! 🎊",
-  "He splits the field—four! ✨",
-  "Pure placement brings four! 🎉",
-];
-
-function HeroNotification() {
-  const [active, setActive] = useState(0);
-  const [previous, setPrevious] = useState(null);
-  const [transitioning, setTransitioning] = useState(false);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setPrevious(active);
-      setActive((current) => (current + 1) % NOTIFICATION_MESSAGES.length);
-      setTransitioning(true);
-      window.setTimeout(() => setTransitioning(false), 650);
-    }, 3200);
-    return () => window.clearInterval(interval);
-  }, [active]);
-
-  return (
-    <div className="hero-notification-window float absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]">
-      {previous !== null && transitioning && (
-        <div className="hero-notification hero-notification-exit" aria-hidden="true">{NOTIFICATION_MESSAGES[previous]}</div>
-      )}
-      <div className={`hero-notification ${transitioning ? 'hero-notification-enter' : ''}`} key={active} aria-live="polite">
-        <span className="hero-notification-icon">🏏</span>
-        <span className="hero-notification-message">{NOTIFICATION_MESSAGES[active]}</span>
-      </div>
-    </div>
-  );
-}
-
 function HeroVisual() {
   return (
     <div className="relative h-[400px] @md:h-[460px] @tab:h-[560px] @desk:col-span-6 @desk:row-span-1 @desk:row-start-1 @desk:h-full @desk:min-h-0 @desk:overflow-hidden @desk:rounded-[36px]">
@@ -180,7 +139,8 @@ function HeroVisual() {
       <div className="absolute left-1/2 top-0 w-[58%] max-w-[292px] -translate-x-[22%] rotate-[3deg] @desk:top-1/2 @desk:w-[39%] @desk:max-w-[240px] @desk:-translate-x-[18%] @desk:-translate-y-[40%]">
         <Phone src="/assets/app-player-profile.jpg" alt="RxPL app: Player Profile for Rohit Borah" />
       </div>
-      <HeroNotification />
+      <img src="/assets/app-push-banner.png" alt="RxPL push notification: A perfect drive to the boundary! 4 Runs – Guwahati Champions"
+        className="float absolute right-0 top-[38%] w-[78%] max-w-[360px] rounded-[22px] shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)] ring-1 ring-white/15 @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]" />
     </div>
   );
 }
@@ -238,7 +198,7 @@ function StepVisual({ i }) {
     <div className="flex flex-wrap gap-1.5">{['Rx', 'POB', 'Camps', 'Conversions'].map((c) => <span key={c} className="rounded-md bg-lavender px-2 py-1 text-[11px] font-bold text-royal">{c}</span>)}</div>
   );
   if (i === 1) return (
-    <div className="flex items-center justify-between rounded-lg bg-lavender px-3 py-2 text-[12px] font-semibold text-ink"><span>Brand B Rx</span><span className="font-score text-base font-bold text-magenta">= 6 Runs</span></div>
+    <div className="flex items-center justify-between rounded-lg bg-lavender px-3 py-2 text-[12px] font-semibold text-ink"><span>Brand B Rx</span><span className="font-score text-base font-bold text-magenta">= 6</span></div>
   );
   if (i === 2) return (
     <div className="flex items-center gap-2 rounded-lg bg-night px-3 py-2"><span className="led text-2xl leading-none">4</span><span className="led text-2xl leading-none text-pink" style={{ color: '#FF4DA8', textShadow: '0 0 14px rgba(255,77,168,.5)' }}>6</span><span className="ml-auto text-[11px] font-bold uppercase tracking-wider text-white/60">runs</span></div>
