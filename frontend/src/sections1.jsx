@@ -546,13 +546,13 @@ function Ticker() {
 const STEPS = [
   {
     icon: "clipboard",
-    title: "Business Activities",
+    title: "Pharma Activities",
     text: "MRs log the priority work you choose: prescriptions, POB, camps and doctor conversions.",
   },
   {
     icon: "sliders",
     title: "Scoring Rules",
-    text: "Your company decides what each activity is worth on the scoreboard.",
+    text: "Your company decides what each activity and/or Brand worth on the scoreboard.",
   },
   {
     icon: "bat",
@@ -639,7 +639,7 @@ export function HowItWorks() {
         <SectionHead
           eyebrow="How RxPL works"
           title="Every Activity Counts. Every Run Matters."
-          intro="RxPL is a business activity engagement platform built around cricket-style competition. It is not fantasy cricket, betting, a CRM or a sales report."
+          intro="RxPL is a Pharma activity engagement platform built around cricket-style competition. It is not fantasy cricket, betting, a CRM or a sales report."
         />
         <ol className="relative mt-5 grid gap-4 @desk:grid-cols-4 @desk:gap-5">
           <div className="flowline absolute left-[12%] right-[12%] top-[38px] hidden h-[2px] opacity-50 @desk:block" />
