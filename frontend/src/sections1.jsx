@@ -61,7 +61,7 @@ export function Nav() {
         <div className="ml-auto flex items-center gap-2 @desk:ml-2">
           <button
             onClick={() => jump("demo")}
-            className="btn-primary hidden h-10 rounded-full px-4 font-display text-[13.5px] font-bold text-white @tab:px-5 @desk:inline-flex"
+            className="btn-primary hidden h-10 items-center justify-center rounded-full px-4 font-display text-[13.5px] font-bold leading-none text-white @tab:px-5 @desk:inline-flex"
           >
             Request Demo
           </button>
