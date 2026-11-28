@@ -351,3 +351,14 @@ h1, h2, h3 { text-wrap: balance; font-family: var(--font-display); }
 @media (prefers-reduced-motion: reduce) {
   .ticker-track { animation: none !important; }
 }
+
+
+/* Desktop-only sizing for the hero cricket notification. Mobile remains unchanged. */
+@container (min-width: 1060px) {
+  .hero-notification { height: 62px !important; }
+  .hero-notification-card { gap: 11px !important; padding: 6px 14px !important; }
+  .hero-notification-card img { width: 46px !important; height: 46px !important; }
+  .hero-notification-card > div > div:first-child { font-size: 14px !important; line-height: 16px !important; }
+  .hero-notification-card > div > div:last-child { font-size: 12px !important; line-height: 14px !important; }
+  .hero-notification-card > span { font-size: 10px !important; line-height: 12px !important; }
+}
