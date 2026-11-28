@@ -115,13 +115,13 @@ export function DesignSystem() {
           </div>
         </Block>
 
-        <Block title="Buttons" note="One primary action per view. Primary is always “Request a Demo”. Height 48px (56px in hero and form).">
+        <Block title="Buttons" note="One primary action per view. Primary is always “Request Demo”. Height 48px (56px in hero and form).">
           <div className="grid gap-4 @tab:grid-cols-2">
             <div className="flex flex-wrap items-center gap-3 rounded-2xl bg-night p-6">
-              <Btn icon="arrow">Request a Demo</Btn><Btn variant="ghost">Explore RxPL</Btn>
+              <Btn icon="arrow">Request Demo</Btn><Btn variant="ghost">Explore RxPL</Btn>
             </div>
             <div className="flex flex-wrap items-center gap-3 rounded-2xl bg-white p-6 ring-1 ring-ink/10">
-              <Btn icon="arrow">Request a Demo</Btn><Btn variant="light">Secondary</Btn>
+              <Btn icon="arrow">Request Demo</Btn><Btn variant="light">Secondary</Btn>
               <button className="text-[14px] font-bold text-magenta">Text link →</button>
             </div>
           </div>
@@ -166,7 +166,7 @@ export function DesignSystem() {
         <Block title="Navigation" note="Sticky white bar, 80px (72px on mobile), with a 3px Indigo → Magenta → Violet rule that hands over to the dark hero.">
           <div className="space-y-3">
             <div className="overflow-hidden rounded-2xl ring-1 ring-ink/10">
-              <div className="flex h-[64px] items-center gap-4 bg-white px-4"><img src="/assets/rxpl-logo.png" alt="" className="h-12 w-auto" /><span className="ml-auto hidden gap-4 text-[13px] font-semibold text-ink/70 @tab:flex"><span>How it works</span><span>Scoring</span><span>Tournament</span><span>App</span></span><span className="btn-primary rounded-full px-4 py-2 text-[13px] font-bold text-white">Request a Demo</span></div>
+              <div className="flex h-[64px] items-center gap-4 bg-white px-4"><img src="/assets/rxpl-logo.png" alt="" className="h-12 w-auto" /><span className="ml-auto hidden gap-4 text-[13px] font-semibold text-ink/70 @tab:flex"><span>How it works</span><span>Scoring</span><span>Tournament</span><span>App</span></span><span className="btn-primary rounded-full px-4 py-2 text-[13px] font-bold text-white">Request Demo</span></div>
               <div className="h-[3px] bg-gradient-to-r from-indigo via-magenta to-violet" />
               <div className="h-10 bg-night" />
             </div>
