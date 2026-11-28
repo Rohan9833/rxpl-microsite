@@ -1,4 +1,3 @@
-import { Icon } from "./icons.jsx";
 import { TEAMS } from "./data.js";
 
 export const LOGO = "/assets/rxpl-logo.png";
@@ -263,7 +262,6 @@ export function Btn({
       className={`${base} ${v} ${className} ${disabled ? "cursor-not-allowed opacity-60" : ""}`}
     >
       {children}
-      {icon && <Icon name={icon} className="h-4 w-4" stroke={2.2} />}
     </button>
   );
 }
