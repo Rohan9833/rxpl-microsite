@@ -845,7 +845,7 @@ export function Scoring() {
                 ))}
               </div>
             </div>
-            <div className="rounded-3xl border border-white/10 p-6">
+            <div className="rounded-3xl border border-white/10 p-6 @desk:hidden">
               <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.2em] text-gold">
                 <Icon name="sliders" className="h-4 w-4" />
                 In your demo
