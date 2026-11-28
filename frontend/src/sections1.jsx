@@ -612,7 +612,7 @@ function StepVisual({ i }) {
           <span className="w-3 font-score text-[12px] font-bold text-muted @desk:hidden">
             {k + 1}
           </span>
-          <span className="hidden min-w-[82px] rounded-md bg-lavender px-1.5 py-1 text-center text-[9px] font-bold leading-none text-royal @desk:inline-flex @desk:items-center @desk:justify-center">
+          <span className="hidden min-w-[82px] rounded-md bg-lavender px-1.5 py-1 text-center text-[9px] font-bold leading-none text-royal @desk:hidden">
             {["Quarterfinals", "Semifinals", "Finals"][k]}
           </span>
           <span
@@ -621,6 +621,13 @@ function StepVisual({ i }) {
           />
         </div>
       ))}
+      <div className="hidden grid-cols-3 gap-1.5 @desk:grid">
+        {["Quarterfinals", "Semifinals", "Finals"].map((stage) => (
+          <span key={stage} className="rounded-md bg-lavender px-1.5 py-1.5 text-center text-[9px] font-bold leading-none text-royal">
+            {stage}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
