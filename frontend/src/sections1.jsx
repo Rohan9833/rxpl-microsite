@@ -375,6 +375,7 @@ function HeroNotification() {
   const renderNotification = (item, style) => (
     <div
       key={item.key}
+      className="hero-notification-card"
       aria-label={`RxPL notification: ${item.headline}. ${item.team} · ${item.score}`}
       style={{
         position: "absolute",
