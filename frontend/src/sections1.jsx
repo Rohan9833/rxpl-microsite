@@ -616,7 +616,7 @@ function StepVisual({ i }) {
             {["Quarterfinals", "Semifinals", "Finals"][k]}
           </span>
           <span
-            className="h-2 rounded-full bg-gradient-to-r from-royal to-magenta"
+            className="h-2 rounded-full bg-gradient-to-r from-royal to-magenta @desk:hidden"
             style={{ width: `${w}%` }}
           />
         </div>
