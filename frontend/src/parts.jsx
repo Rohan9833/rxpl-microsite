@@ -248,7 +248,7 @@ export function Btn({
   disabled = false,
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-full font-display font-bold text-[15px] px-6 h-12 transition";
+    "inline-flex items-center justify-center gap-2 rounded-full font-display font-bold text-[15px] leading-none px-6 h-12 transition";
   const v = {
     primary: "btn-primary text-white",
     ghost: "border border-white/25 text-white hover:bg-white/10",
