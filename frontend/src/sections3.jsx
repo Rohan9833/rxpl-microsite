@@ -264,7 +264,7 @@ export function Demo() {
                 <div className="flex flex-col gap-3 @tab:col-span-2 @tab:flex-row @tab:items-center @tab:justify-between">
                   <p className="text-[12px] text-muted">We use these details only to arrange your demo.</p>
                   {serverError && <p role="alert" className="text-[12.5px] font-semibold text-rose-600 @tab:col-span-2">{serverError}</p>}
-                  <Btn type="submit" icon="arrow" disabled={sending} className="h-14 px-8 text-base">{sending ? 'Sending…' : 'Request a Demo'}</Btn>
+                  <Btn type="submit" icon="arrow" disabled={sending} className="h-14 px-8 text-base">{sending ? 'Sending…' : 'Request Demo'}</Btn>
                 </div>
               </form>
             )}
@@ -294,7 +294,7 @@ export function Footer() {
         </nav>
         <div className="@desk:col-span-4">
           <div className="text-[11px] font-bold uppercase tracking-[.2em] text-muted">See it for your brands</div>
-          <Btn onClick={() => go('demo')} icon="arrow" className="mt-4">Request a Demo</Btn>
+          <Btn onClick={() => go('demo')} icon="arrow" className="mt-4">Request Demo</Btn>
           <div className="mt-8 text-[11px] font-bold uppercase tracking-[.2em] text-muted">A product by</div>
           <img src="/assets/digilateral.png" alt="digiLATERAL — Think Lateral, Think Digital. Digital solutions for pharma marketeers" className="mt-3 h-12 w-auto" />
         </div>
