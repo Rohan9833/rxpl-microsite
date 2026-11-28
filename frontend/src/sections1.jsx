@@ -424,7 +424,7 @@ function HeroNotification() {
 
   return (
     <div
-      className="absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[65%] @desk:max-w-[340px]"
+      className="hero-notification absolute right-0 top-[38%] w-[78%] max-w-[360px] @tab:right-[2%] @desk:right-[3%] @desk:top-[54%] @desk:w-[70%] @desk:max-w-[380px]"
       style={{ height: "54px", overflow: "hidden" }}
     >
       {renderNotification(outgoing, outgoingStyle)}
