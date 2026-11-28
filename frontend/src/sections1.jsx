@@ -226,7 +226,7 @@ export function Hero() {
             </span>
           </h1>
           <p className="hidden mt-5 max-w-[46ch] text-[1.05rem] leading-[1.8] text-white/75 @desk:block">
-            Turn priority brand activities into cricket runs,
+            Turn brand activities into cricket runs,
             <br className="hidden @desk:block" />
             regional competition, and measurable field-force
             <br className="hidden @desk:block" />
@@ -281,7 +281,7 @@ export function Hero() {
           </Btn>
         </div>
         <p className="mt-2 max-w-[44ch] text-[0.8rem] leading-relaxed text-white/75 @tab:text-[1.2rem] @desk:col-span-6 @desk:row-start-2 @desk:hidden">
-          Turn priority brand activities into cricket runs, regional
+          Turn brand activities into cricket runs, regional
           competition, and measurable field-force engagement.
         </p>
         <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-white/55 @desk:hidden">
