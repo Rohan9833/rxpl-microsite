@@ -732,7 +732,7 @@ export function Scoring() {
         />
 
         <div className="mt-5 grid gap-6 @desk:grid-cols-12">
-          <div className="scoreboard overflow-hidden rounded-3xl @desk:col-span-8">
+          <div className="scoreboard overflow-hidden rounded-3xl @desk:hidden">
             <div
               className="flex w-full gap-1 border-b border-white/10 p-1"
               role="tablist"
