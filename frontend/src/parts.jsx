@@ -1,4 +1,3 @@
-import { Icon } from "./icons.jsx";
 import { TEAMS } from "./data.js";
 
 export const LOGO = "/assets/rxpl-logo.png";
@@ -249,7 +248,7 @@ export function Btn({
   disabled = false,
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-full font-display font-bold text-[15px] px-6 h-12 transition";
+    "inline-flex items-center justify-center gap-2 rounded-full font-display font-bold text-[15px] leading-none px-6 h-12 transition";
   const v = {
     primary: "btn-primary text-white",
     ghost: "border border-white/25 text-white hover:bg-white/10",
@@ -263,7 +262,6 @@ export function Btn({
       className={`${base} ${v} ${className} ${disabled ? "cursor-not-allowed opacity-60" : ""}`}
     >
       {children}
-      {icon && <Icon name={icon} className="h-4 w-4" stroke={2.2} />}
     </button>
   );
 }
