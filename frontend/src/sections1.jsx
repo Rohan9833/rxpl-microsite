@@ -63,7 +63,7 @@ export function Nav() {
             onClick={() => jump("demo")}
             className="btn-primary hidden h-10 rounded-full px-4 font-display text-[13.5px] font-bold text-white @tab:px-5 @desk:inline-flex"
           >
-            Request a Demo
+            Request Demo
           </button>
           <img
             src="/assets/Productbydigilateral.png"
@@ -106,7 +106,7 @@ export function Nav() {
             className="mt-5 w-full"
             icon="arrow"
           >
-            Request a Demo
+            Request Demo
           </Btn>
         </div>
       )}
@@ -238,7 +238,7 @@ export function Hero() {
               icon="arrow"
               className="h-14 justify-center px-8 text-base"
             >
-              Request a Demo
+              Request Demo
             </Btn>
             <Btn
               onClick={() => go("how")}
@@ -270,7 +270,7 @@ export function Hero() {
             icon="arrow"
             className="h-14 flex-1 justify-center px-3 text-sm @tab:px-8 @tab:text-base"
           >
-            Request a Demo
+            Request Demo
           </Btn>
           <Btn
             onClick={() => go("how")}
