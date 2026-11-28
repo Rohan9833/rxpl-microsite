@@ -609,8 +609,11 @@ function StepVisual({ i }) {
     <div className="space-y-1">
       {[92, 74, 58].map((w, k) => (
         <div key={k} className="flex items-center gap-2">
-          <span className="w-3 font-score text-[12px] font-bold text-muted">
+          <span className="w-3 font-score text-[12px] font-bold text-muted @desk:hidden">
             {k + 1}
+          </span>
+          <span className="hidden min-w-[82px] rounded-md bg-lavender px-1.5 py-1 text-center text-[9px] font-bold leading-none text-royal @desk:inline-flex @desk:items-center @desk:justify-center">
+            {["Quarterfinals", "Semifinals", "Finals"][k]}
           </span>
           <span
             className="h-2 rounded-full bg-gradient-to-r from-royal to-magenta"
